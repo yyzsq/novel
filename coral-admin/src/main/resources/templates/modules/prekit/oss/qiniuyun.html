@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:replace="common/links :: common_header(~{::title},~{::style},~{})">
+    <title>七牛云对象存储OSS</title>
+    <style>
+        #bucketsTable + .layui-table-view .layui-table-tool-temp {
+            padding-right: 0;
+        }
+
+        #bucketsTable + .layui-table-view .layui-table-body tbody > tr td {
+            cursor: pointer;
+        }
+
+        #bucketsTable + .layui-table-view .layui-table-body tbody > tr.layui-table-click {
+            background-color: #fff3e0;
+        }
+
+        #bucketsTable + .layui-table-view .layui-table-body tbody > tr.layui-table-click td:last-child > div:before {
+            position: absolute;
+            right: 6px;
+            content: "\e602";
+            font-size: 12px;
+            font-style: normal;
+            font-family: layui-icon !important;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 正文开始 -->
+<div class="layui-fluid" style="padding-bottom: 0;">
+    <div class="layui-row layui-col-space15">
+        <div class="layui-col-md3">
+            <div class="layui-card">
+                <div class="layui-card-body" style="padding: 10px;">
+                    <!-- 表格工具栏1 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline" style="width: 100%">
+                            <button class="layui-btn icon-btn" id="settingBtn" type="button" style="width: 100%">
+                                <i class="layui-icon">&#xe716;</i>参数设置
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 数据表格1 -->
+                    <table id="bucketsTable" lay-filter="bucketsTable"></table>
+                </div>
+            </div>
+        </div>
+        <div class="layui-col-md9">
+            <div class="layui-card">
+                <div class="layui-card-body" style="padding: 10px;">
+                    <!-- 表格工具栏2 -->
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <button class="layui-btn layui-btn-disabled icon-btn" id="uploadBtn1" type="button">
+                                <i class="layui-icon">&#xe681;</i>上传文件
+                            </button>
+                        </div>
+                    </div>
+                    <!-- 数据表格2 -->
+                    <table id="fileTable" lay-filter="fileTable"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="objectTbBar">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="preview">预览/下载</a>
+<!--    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>-->
+</script>
+
+<!-- 配置弹窗-1-->
+<script type="text/html" id="cfgDialog">
+    <form id="cfgForm" lay-filter="cfgForm" class="layui-form">
+        <input name="id" type="hidden"/>
+        <input name="name" type="hidden"/>
+        <input name="keyName" type="hidden"/>
+        <table id="formMapTable" lay-filter="formMapTable"></table>
+        <div class="layui-form-item text-right">
+            <button class="layui-btn" lay-filter="saveBtn" lay-submit>保存</button>
+            <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+        </div>
+    </form>
+</script>
+
+<div>
+    <script>
+        //全局变量 Shiro权限
+        var shiroUpload = false;
+        var shiroDelete = false;
+    </script>
+    <!-- 设置Shiro权限变量 -->
+    <shiro:hasAllPermissions name="aliyunOss:upload">
+        <script>shiroUpload = true;</script>
+    </shiro:hasAllPermissions>
+    <shiro:hasAllPermissions name="aliyunOss:delete">
+        <script>shiroDelete = true;</script>
+    </shiro:hasAllPermissions>
+</div>
+<!-- js部分1 -->
+<div th:replace="common/scripts :: jquery"></div>
+<div th:replace="common/scripts :: common"></div>
+<div th:replace="common/scripts :: custom"></div>
+<script th:inline="javascript">
+    layui.use(['layer', 'form', 'table', 'tableX', 'util', 'admin', 'upload', 'fileChoose'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+        var table = layui.table;
+        var tableX = layui.tableX;
+        var util = layui.util;
+        var admin = layui.admin;
+        var upload = layui.upload;
+        var fileChoose = layui.fileChoose;
+        var selObj;  // 左表选中数据
+
+        /* 渲染表格 */
+        var bucketCols = [
+            {type: 'numbers'},
+            {field: 'name', title: '存储桶名称'}
+        ]
+        var insTb = table.render({
+            elem: '#bucketsTable',
+            url: 'qiniuyun/listBuckets',
+            height: 'full-100',
+            defaultToolbar: [],
+            cols: [bucketCols],
+            done: function (res, curr, count) {
+                $('#bucketsTable+.layui-table-view .layui-table-body tbody>tr:first').trigger('click');
+            }
+        });
+
+        /* 监听左侧数据行单击事件 */
+        var insTb2;
+        table.on('row(bucketsTable)', function (obj) {
+            selObj = obj;
+            obj.tr.addClass('layui-table-click').siblings().removeClass('layui-table-click');
+            // insTb2.reload({where: {bucketName: obj.data.name}, url: 'aliyun/listObjects'});
+            var objectCols = [
+                {type: 'checkbox'},
+                {type: 'numbers'},
+                {field: 'name', title: '文件名称'},
+                {field: 'fileUrl', title: '访问地址'},
+                {field: 'fileSize', title: '大小', sort: true, width:100, align: 'center'},
+                // {field: 'storageType', title: '存储类型'},
+                {
+                    field: 'lastModified', title: '最后更新时间', templet: function (d) {
+                        return util.toDateString(d.lastModified);
+                    }, sort: true
+                },
+                {title: '操作', toolbar: '#objectTbBar', align: 'center', width: 180, minWidth: 120}
+            ]
+            // 前端分页
+            insTb2 = tableX.renderFront({
+                elem: '#fileTable',
+                url: 'qiniuyun/listObjects',
+                where: {bucketName: obj.data.name},
+                page: {groups: 6},
+                height: 'full-100',
+                cellMinWidth: 100,
+                toolbar: true,
+                cols: [objectCols],
+                done: function () {
+                }
+            });
+
+            // 上传
+            upload.render({ //允许上传的文件后缀
+                elem: '#uploadBtn',
+                url: "aliyun/upload",
+                data: {bucketName:obj.data.name},
+                accept: 'file', //支持所有文件
+                size: 1024 * 5, //最大支持5M
+                drag: true,
+                before: function(obj){
+                    console.log("上传前=="+JSON.stringify(obj));
+                    layer.load(); //上传loading
+                },
+                done: function(res){
+                    console.log("上传结果=="+JSON.stringify(res));
+                    layer.closeAll('loading');
+                    if (res.code==0) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb2.reload({where: {bucketName: selObj.data.name}, url: 'aliyun/listObjects'});
+                    } else{
+                        layer.msg(res.msg, {icon: 2});
+                    }
+
+                }
+            });
+        });
+
+
+        //********************************************右侧*****************************************************
+        /* 参数设置 */
+        $('#settingBtn').click(function () {
+            if ([[${session.session_runtime}]] == 'demo'){
+                return layer.msg('演示环境不允许操作，请联系管理员', {icon: 4});
+            }
+            var mData = null;
+            $.get('qiniuyun/cfg', function (res) {
+                if (res && res.code == 0 && res.data) {
+                    mData = res.data;
+                    admin.open({
+                        type: 1,
+                        area: '800px',
+                        title: ("配置阿里云对象存储（OSS）参数"),
+                        content: $('#cfgDialog').html(),
+                        success: function (layero, dIndex) {
+                            form.val('cfgForm', mData);  // 回显数据
+                            form.on('submit(saveBtn)', function (data) {
+                                var nList = admin.util.deepClone(mapDataList);
+                                data.field.valueStr = JSON.stringify(nList);
+                                $.post('qiniuyun/set', data.field, function (res) {
+                                    if (res.code == 0) {
+                                        layer.close(dIndex);
+                                        layer.msg(res.msg, {icon: 1});
+                                    } else {
+                                        layer.msg(res.msg, {icon: 2});
+                                    }
+                                }, 'json');
+                                return false;
+                            });
+
+                            var mapDataList = [];
+                            if (mData.valueStr) {
+                                try {
+                                    mapDataList = eval("(" + mData.valueStr + ")");
+                                } catch (e) {
+                                }
+                            }
+                            var itemCols = [
+                                {type: 'numbers'},
+                                {field: 'name', title: '参数名'},
+                                {field: 'mapVal', title: '参数值（鼠标点击表格可修改）', edit:'text'},
+                            ]
+                            var tbOptions = {
+                                elem: '#formMapTable',
+                                data: mapDataList,
+                                cellMinWidth: 100,
+                                cols: [itemCols],
+                                done: function () {
+                                    $(layero).find('.layui-table-view').css('margin', '0');
+                                },
+                                size: ''
+                            };
+                            //渲染表格
+                            var insTbMaps = table.render(tbOptions);
+                        }
+                    });
+                }
+            });
+        });
+
+
+        /* 表格2工具条点击事件 */
+        table.on('tool(fileTable)', function (obj) {
+            if (obj.event === 'preview') { // 修改
+                if(obj.data.contentType.indexOf("image")>-1){
+                    previewImg(obj.data.fileUrl);
+                }else{
+                    window.open(obj.data.fileUrl);
+                }
+            } else if (obj.event === 'del') { // 删除
+                doDel2(obj);
+            }
+        });
+
+        /* 删除2 */
+        function doDel2(obj) {
+            layer.confirm('确定要删除选中数据吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                var loadIndex = layer.load(2);
+                $.post('aliyun/delete', {
+                    bucketName: obj.data ? selObj.data.name : '',
+                    key: obj.data ? obj.data.keyPath : ''
+                }, function (res) {
+                    layer.close(loadIndex);
+                    if (0 === res.code) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb2.reload({where: {bucketName: selObj.data.name}, url: 'aliyun/listObjects'});
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
+    });
+</script>
+
+</body>
+</html>

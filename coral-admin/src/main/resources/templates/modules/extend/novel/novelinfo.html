@@ -1,0 +1,370 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org"
+      xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:replace="common/links :: common_header(~{::title},~{},~{})">
+    <title>小说信息-模块</title>
+</head>
+<body>
+<!-- 页面加载loading -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 正文开始 -->
+<div class="layui-fluid">
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <!-- 表格工具栏 -->
+            <form class="layui-form toolbar">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">小说标题:</label>
+                        <div class="layui-input-inline">
+                            <input name="xsTitle" class="layui-input" placeholder="请输入小说标题"/>
+                        </div>
+                    </div>
+                    <div class="layui-inline">
+                        <label class="layui-form-label">状态:</label>
+                        <div class="layui-input-inline">
+                            <select name="status" class="layui-select">
+                                <option value="">请选择状态</option>
+                                <option value="0">待审核</option>
+                                <option value="1">审核通过</option>
+                                <option value="2">审核未通过</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="layui-inline">&emsp;
+                        <button class="layui-btn icon-btn" lay-filter="searchBtn" lay-submit>
+                            <i class="layui-icon">&#xe615;</i>搜索
+                        </button>&nbsp;
+                        <button shiro:hasPermission="novelInfo:export" id="exportBtn" class="layui-btn icon-btn"
+                                type="button">
+                            <i class="layui-icon">&#xe67d;</i>导出
+                        </button>
+                    </div>
+                </div>
+            </form>
+            <!-- 数据表格 -->
+            <table id="dataTable" lay-filter="dataTable"></table>
+        </div>
+    </div>
+</div>
+
+<!-- 表格操作列 -->
+<script type="text/html" id="tableBar">
+    <a shiro:hasPermission="novelInfo:update" class="layui-btn layui-btn-primary layui-btn-xs" lay-event="edit">修改</a>
+    <a shiro:hasPermission="novelInfo:delete" class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+
+<!-- 表单弹窗 -->
+<script type="text/html" id="formDialog">
+    <form id="dataForm" lay-filter="dataForm" class="layui-form model-form">
+        <input name="id" type="hidden"/>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">小说标题:</label>
+            <div class="layui-input-block">
+                <input name="xsTitle" placeholder="请输入小说标题" class="layui-input"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">一级分类:</label>
+            <div class="layui-input-block">
+                <select name="type1" onchange="updaType(this)" class="layui-select" lay-verify="required" required></select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">二级分类:</label>
+            <div class="layui-input-block">
+                <select name="type2" class="layui-select" lay-verify="required" required></select>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">关联作者编号:</label>
+            <div class="layui-input-block">
+                <input name="authorId" placeholder="请输入关联作者编号" class="layui-input"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">主角名称:</label>
+            <div class="layui-input-block">
+                <input name="leadName" placeholder="请输入主角名称" class="layui-input"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">主图:</label>
+            <div class="layui-input-block">
+                <button type="button" class="layui-btn" id="test1">
+                    <i class="layui-icon">&#xe67c;</i>上传图片
+                </button>
+                <img src="" name="imgUrl" style="width: 50px;height: 65px" />
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label layui-form-required">简介:</label>
+            <div class="layui-input-block">
+                <input name="synopsis" placeholder="请输入简介" class="layui-input"
+                       lay-verType="tips" lay-verify="required" required/>
+            </div>
+        </div>
+
+        <div class="layui-form-item text-right">
+            <button class="layui-btn" lay-filter="saveBtn" lay-submit>保存</button>
+            <button class="layui-btn layui-btn-primary" type="button" ew-event="closeDialog">取消</button>
+        </div>
+    </form>
+</script>
+<!-- js部分 -->
+<div th:replace="common/scripts :: common"></div>
+<div th:replace="common/scripts :: custom"></div>
+<div>
+    <script>
+        //全局变量 Shiro权限
+        var shiroSave = false;
+        var shiroDelete = false;
+        var shiroUpdate = false;
+        var shiroInfo = false;
+    </script>
+    <!-- 设置Shiro权限变量 -->
+    <shiro:hasAllPermissions name="novelInfo:save">
+        <script>shiroSave = true;</script>
+    </shiro:hasAllPermissions>
+    <shiro:hasAllPermissions name="novelInfo:delete">
+        <script>shiroDelete = true;</script>
+    </shiro:hasAllPermissions>
+    <shiro:hasAllPermissions name="novelInfo:update">
+        <script>shiroUpdate = true;</script>
+    </shiro:hasAllPermissions>
+</div>
+<script>
+    layui.use(['layer', 'form', 'table', 'util', 'laydate', 'tableX', 'admin'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+        var table = layui.table;
+        var util = layui.util;
+        var laydate = layui.laydate;
+        var tableX = layui.tableX;
+        var admin = layui.admin;
+
+        /* 渲染表格 */
+        var cols = [
+            {type: 'checkbox'},
+            {field: 'xsTitle', title: '小说标题', align: 'center'},
+            {field: 'type1Name', title: '一级分类', align: 'center'},
+            {field: 'type2Name', title: '二级分类', align: 'center'},
+            {field: 'authorName', title: '作者', align: 'center'},
+            {field: 'leadName', title: '主角名称', align: 'center'},
+            {field: 'charNumber', title: '字数', align: 'center'},
+            {field: 'yueduCount', title: '阅读数', align: 'center'},
+            {field: 'imgUrl', title: '主图', align: 'center'},
+            {field: 'score', title: '评分', align: 'center'},
+            {field: 'popularity', title: '人气值', align: 'center'},
+            {field: 'synopsis', title: '简介', align: 'center'},
+            {field: 'newChapter', title: '最新章节', align: 'center'},
+            {
+                field: 'newChapterTime', title: '最新更新时间', templet: function (d) {
+                    return d.newChapterTime==null?"": util.toDateString(d.newChapterTime);
+                }, sort: true
+            },
+            {field: 'status', title: '状态', align: 'center',templet: function (d) {
+                    var strs = [
+                        '<span class="layui-badge layui-badge-yellow">待审核</span>',
+                        '<span class="layui-badge layui-badge-green">审核通过</span>',
+                        '<span class="layui-badge layui-badge-red">审核未通过</span>',
+                    ];
+                    return strs[d.status];
+                }},
+            {title: '操作', toolbar: '#tableBar', align: 'center', minWidth: 200}
+        ];
+
+        var insTb = table.render({
+            elem: '#dataTable',
+            url: 'novelInfo/page',
+            page: true,
+            toolbar: [shiroToolbar(shiroSave, shiroDelete)].join(''),
+            cellMinWidth: 100,
+            cols: [cols],
+            done: function () {
+                // 绑定鼠标右键
+                tableX.bindCtxMenu('dataTable', shiroBindCtxMenu(shiroDelete, shiroUpdate));
+            }
+        });
+
+        /* 表格工具条点击事件 */
+        table.on('tool(dataTable)', function (obj) {
+            if (obj.event === 'edit') { // 修改
+                showEditModel(obj.data);
+            } else if (obj.event === 'del') { // 删除
+                doDel(obj.data);
+            } else if (obj.event === 'reset') { // 重置密码
+                resetPsw(obj);
+            }
+        });
+
+        /* 表格头工具栏点击事件 */
+        table.on('toolbar(dataTable)', function (obj) {
+            if (obj.event === 'add') { // 添加
+                showEditModel();
+            } else if (obj.event === 'del') { // 删除
+                var checkRows = table.checkStatus('dataTable');
+                if (checkRows.data.length === 0) {
+                    layer.msg('请选择要删除的数据', {icon: 2});
+                    return;
+                }
+                var ids = checkRows.data.map(function (d) {
+                    return d.id;
+                });
+                doDel({ids: ids});
+            }
+        });
+
+        // 显示编辑弹窗
+        function showEditModel(mData) {
+            admin.open({
+                type: 1,
+                area: '800px',
+                title: (mData ? '修改' : '添加'),
+                content: $('#formDialog').html(),
+                success: function (layero, dIndex) {
+                    $.ajax({
+                        url:"/extend/novel/novelType/list",
+                        data:{"fuId":"0"},
+                        dataType:"json",
+                        type:"get",
+                        async:false,
+                        success : function (res) {
+                            var userInfo="<option value=''>请选择一级分类</option>"
+                            for(var i=0;i<res.data.length;i++){
+                                var info=res.data[i];
+                                userInfo+="<option value='"+info.id+"'>"+info.typeName+"</option>"
+                            }
+                            $("[name='type1']").html("")
+                            $("[name='type1']").append(userInfo);
+                            form.render('select');
+                        }
+                    });
+                    form.val('dataForm', mData);  // 回显数据
+
+                    layui.use('upload', function(){
+                        var upload = layui.upload;
+
+                        //执行实例
+                        var uploadInst = upload.render({
+                            elem: '#test1' //绑定元素
+                            ,url: '/extend/upload/uploadFile' //上传接口
+                            ,done: function(res){
+                                //上传完毕回调
+                                $("[name='imgUrl']").attr("src",res.data);
+                            }
+                            ,error: function(){
+                                //请求异常回调
+                            }
+                        });
+                    });
+                    // 添加权限信息
+                    form.on('submit(saveBtn)', function (data) {
+                        $.post(mData ? 'novelInfo/update' : 'novelInfo/save', data.field, function (res) {
+                            if (res.code == 0) {
+                                layer.close(dIndex);
+                                layer.msg(res.msg, {icon: 1});
+                                insTb.reload({page: {curr: 1}});
+                            } else {
+                                layer.msg(res.msg, {icon: 2});
+                            }
+                        }, 'json');
+                        return false;
+                    });
+                }
+            });
+
+        }
+
+        /* 表格搜索 */
+        form.on('submit(searchBtn)', function (data) {
+            if (data.field.dateRange) {
+                var searchDate = data.field.dateRange.split(' - ');
+                data.field.startDate = searchDate[0];
+                data.field.endDate = searchDate[1];
+            } else {
+                data.field.startDate = '';
+                data.field.endDate = '';
+            }
+            data.field.dateRange = undefined;
+            insTb.reload({where: data.field, page: {curr: 1}});
+            return false;
+        });
+
+        /* 导出excel */
+        $('#exportBtn').click(function () {
+            var checkRows = table.checkStatus('dataTable');
+            if (checkRows.data.length === 0) {
+                layer.msg('请选择要导出的数据', {icon: 2});
+            } else {
+                tableX.exportDataX({
+                    cols: insTb.config.cols,
+                    data: checkRows.data,
+                    fileName: '导出数据'
+                });
+            }
+        });
+
+        window.updaType = function(res){
+            var typeId=$(res).val();
+            $.ajax({
+                url:"/extend/novel/novelType/list",
+                data:{"fuId":typeId},
+                dataType:"json",
+                type:"get",
+                async:false,
+                success : function (res) {
+                    var userInfo="<option value=''>请选择二级分类</option>"
+                    for(var i=0;i<res.data.length;i++){
+                        var info=res.data[i];
+                        userInfo+="<option value='"+info.id+"'>"+info.typeName+"</option>"
+                    }
+                    $("[name='type2']").html("")
+                    $("[name='type2']").append(userInfo);
+                    form.render('select');
+                }
+            });
+        }
+
+        /* 删除 */
+        window.doDel = function (obj) {
+            layer.confirm('确定要删除选中数据吗？', {
+                skin: 'layui-layer-admin',
+                shade: .1
+            }, function (i) {
+                layer.close(i);
+                var loadIndex = layer.load(2);
+                $.post('novelInfo/delete', {
+                    id: obj ? obj.id : '',
+                    ids: obj.ids ? obj.ids.join(',') : ''
+                }, function (res) {
+                    layer.close(loadIndex);
+                    if (res.code === 0) {
+                        layer.msg(res.msg, {icon: 1});
+                        insTb.reload({page: {curr: 1}});
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                }, 'json');
+            });
+        }
+
+        /* 渲染时间选择 */
+        laydate.render({
+            elem: 'input[name="dateRange"]',
+            type: 'date',
+            range: true,
+            trigger: 'click'
+        });
+    });
+</script>
+</body>
+</html>

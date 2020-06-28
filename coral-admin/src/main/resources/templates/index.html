@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/links :: common_header(~{::title},~{},~{})">
+    <title>GemFrame 权限管理系统v1.0.0</title>
+</head>
+<body class="layui-layout-body">
+<div class="layui-layout layui-layout-admin">
+    <!--头部信息-->
+    <div th:replace="layout/header::head_navbar"></div>
+    <!--左边导航-->
+    <div th:replace="layout/lefter::left_sidebar"></div>
+    <!--中间内容-->
+    <div th:replace="layout/main::main"></div>
+    <!--底部版权-->
+    <div th:replace="layout/footer::footer"></div>
+</div>
+
+<!-- 加载动画 -->
+<div class="page-loading">
+    <div class="ball-loader">
+        <span></span><span></span><span></span><span></span>
+    </div>
+</div>
+<!-- 侧边栏渲染模板 -->
+<script id="sideNav" type="text/html">
+    {{#  layui.each(d, function(index, item){ }}
+    <li class="layui-nav-item">
+        <a target="_blank" lay-href="{{item.url}}"><i class="{{item.icon}}"></i>&emsp;<cite>{{ item.name }}</cite></a>
+        {{# if(item.subMenus&&item.subMenus.length>0){ getSubMenus(item.subMenus); } }}
+    </li>
+    {{#  }); }}
+    {{# function getSubMenus(subMenus){ }}
+    <dl class="layui-nav-child">
+        {{# layui.each(subMenus, function(index, subItem){ }}
+        <dd>
+            <a target="_blank" lay-href="{{ subItem.url }}"><i class="{{subItem.icon}}"></i>&emsp;{{ subItem.name }}</a>
+            {{# if(subItem.subMenus&&subItem.subMenus.length>0){ getSubMenus(subItem.subMenus); } }}
+        </dd>
+        {{# }); }}
+    </dl>
+    {{# } }}
+</script>
+
+
+<!-- js部分 -->
+<div th:replace="common/scripts :: jquery"></div>
+<div th:replace="common/scripts :: common"></div>
+<div th:replace="common/scripts :: index"></div>
+<div th:replace="common/scripts :: custom"></div>
+<script>
+
+    layui.use(['layer', 'element', 'admin', 'index', 'laytpl', 'element'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var admin = layui.admin;
+        var index = layui.index;
+        var laytpl = layui.laytpl;
+        var element = layui.element;
+
+        // 默认加载主页
+        index.loadHome({
+            menuPath: 'prekit/desk/board.html',
+            menuName: '<i class="layui-icon layui-icon-theme"></i>  仪表盘',
+        });
+
+        // ajax渲染侧边栏-基础部分
+        $.get('prekit/rbac/right/leftSidebar',{"position":0},  function (res) {
+            laytpl(sideNav.innerHTML).render(res.data, function (html) {
+                $('#sidebar-menu-basic').html(html);
+                element.render('nav');
+            });
+        }, 'json');
+
+        // ajax渲染侧边栏-企业办公
+        $.get('prekit/rbac/right/leftSidebar',{"position":1},  function (res) {
+            laytpl(sideNav.innerHTML).render(res.data, function (html) {
+                $('#sidebar-menu-plus').html(html);
+                element.render('nav');
+            });
+        }, 'json');
+
+        // ajax渲染侧边栏-扩展部分
+        $.get('prekit/rbac/right/leftSidebar',{"position":2}, function (res) {
+            laytpl(sideNav.innerHTML).render(res.data, function (html) {
+                $('#sidebar-menu-extend').html(html);
+                element.render('nav');
+            });
+        }, 'json');
+
+        // ajax渲染侧边栏-监控大屏
+        $.get('json/side-achart.json', function (res) {
+            laytpl(sideNav.innerHTML).render(res.data, function (html) {
+                $('#sidebar-menu-achart').html(html);
+                element.render('nav');
+            });
+        }, 'json');
+
+
+
+    });
+</script>
+</body>
+</html>

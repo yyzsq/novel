@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/links :: common_header(~{::title},~{::link},~{})">
+    <script>if (window !== top) top.location.replace(location.href);</script>
+    <title>请您登录 | GemFrame 权限管理系统v1.0.0</title>
+    <link th:href="@{/coral/css/gitee.css}" rel="stylesheet">
+</head>
+<body>
+<div class="site-content">
+    <div id="app" class="session-wrapper animated fadeInLeft">
+        <div class="ui container">
+            <div class="session__body">
+                <div class="session-sidebox">
+                    <div class="session-sidebox__container">
+                        <div class="session-sidebox__header">
+                            <div class="session-sidebox__logo"></div>
+                            <h1 class="session-sidebox__title"></h1>
+                            <h2 class="session-sidebox__subtitle"> 捷码  Coral开发框架 </h2></div>
+                        <div class="session-sidebox__content">
+                            <div class="session-sidebox-content__container">
+                                <div class="session-sidebox-comments__header"><span
+                                        class="session-sidebox-comments__title">当前版本:</span> <span
+                                        class="session-sidebox-comments__position">V1.0.6</span></div>
+                                <div class="session-sidebox-comments__content">
+                                    Gem-Coral 是一个 Java 轻量级企业快速开发框架，基于经典主流的技术框架组合
+                                    <HR/>
+                                    <B>【核心框架：Spring Boot v2.2.x】</B>
+                                    <HR/><B>【安全框架：Apache Shiro v1.4.x】</B>
+                                    <HR/><B>【持久层框架：MyBatis-Plus v3.3.x】</B>
+                                    <HR/><B>【模板引擎：Thymeleaf + Layui v2.5.6】</B>
+                                    <HR/>
+                                    开箱即用，学习成本极低，提高团队开发效率。
+                                </div>
+                            </div>
+                        </div>
+                        <div class="session-sidebox__footer">
+                            <a href="https://www.gemframework.com/bbs" target="_blank">
+                                <strong class="session-sidebox__icon-hot">官方社区</strong>
+                                <i class="iconfont icon-arrow-circle-right "></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="session-form">
+                    <div class="session-form__container is-login">
+                        <header class="session-form__header"><h2 class="session-form__title"><span>欢迎登录</span></h2>
+                        <span class="pull-right"></span></header>
+                        <form accept-charset="UTF-8" class="layui-form ui custom form session__control session-login__form session-login__with-password ">
+                            <div class="session-login__body">
+                                <div class="session-form__fields">
+                                    <div class="git-login-form-fields">
+                                        <div class="field">
+                                            <input name="username" placeholder="请输入帐号admin" type="text" value="admin" class="login-password__account-input">
+                                        </div>
+                                        <div class="field">
+                                            <input data-encrypt="true" name="password" placeholder="请输入密码123456" value="123456" type="password">
+                                        </div>
+                                        <div class="field">
+                                            <input name="validCode" placeholder="请输入验证码" type="text" lay-verify="required" required>
+                                            <img class="login-captcha" src="captcha/code" width="130px" height="48px" />
+                                        </div>
+                                        <div class="field">
+                                            <button type="button" class="ui fluid orange submit button large" lay-filter="loginSubmit" lay-submit>登录</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="session-login-oauth">
+                            <div class="session-login__oschina"></div>
+                            <div class="session-login-oauth__container">
+                                <div class="field">
+                                    <div class="ui horizontal divider session-login__oauth-title"><span
+                                            class="text-muted"> 其他方式登录 </span></div>
+                                </div>
+                                <div class="text-center"> 暂无，敬请期待，功能开发中...</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="session__footer">
+                <span class="copy">Copyright © [[${#dates.format(new java.util.Date().getTime(), 'yyyy')}]] Powered By <a href="http://www.gemframework.com" target="_blank"> gemframework.com </a>
+                | <a href="http://www.gemframework.com" target="_blank">项目官网</a>
+                | <a href="http://www.gemframework.com/bbs" target="_blank">社区交流</a>
+                | <a href="login.html"><font color="#000">捷码登录</font></a>
+                | <a href="login_oschina.html"><font color="RED">仿 中国</font></a>
+                </span>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- js部分 -->
+<div th:replace="common/scripts :: common"></div>
+<div th:replace="common/scripts :: jquery"></div>
+<div th:replace="common/scripts :: encode"></div>
+<script>
+    layui.use(['admin', 'layer', 'form', 'notice'], function () {
+        var $ = layui.jquery;
+        var layer = layui.layer;
+        var form = layui.form;
+        var notice = layui.notice;
+        var admin = layui.admin;
+
+        //登录超时处理
+        if (top.location.href != self.location.href) {
+            layer.alert("登录超时，请重新登录！", {
+                closeBtn: 0
+                , icon: 5
+                , anim: 4 //动画类型
+            }, function () {
+                top.location.href = self.location.href;
+            });
+        }
+
+        // 表单提交
+        form.on('submit(loginSubmit)', function (obj) {
+            obj.field.password = encode64(obj.field.password);
+            $.ajax({
+                type: "post",
+                url: "login",
+                data: obj.field,
+                async: true, // 异步请求
+                cache: false, // 设置为 false 将不缓存此页面
+                dataType: "json", // 返回对象
+                success: function (res) {
+                    if (res.code == "0") {
+                        layer.msg('登录成功', {icon: 1, time: 1500}, function () {
+                            location.replace('index')
+                        });
+                    } else {
+                        notice.error({
+                            title: '登录失败',
+                            message: "错误码：[" + res.code + "]    错误消息：" + res.msg + "",
+                            theme: "light",
+                            displayMode: 2,
+                            layout: 2
+                        });
+                    }
+                },
+                error: function (e) {
+                    // 请求失败函数
+                    console.log("error:" + JSON.stringify(e));
+                    layer.msg("操作失败，请检查是否有相关操作权限！");
+                }
+            })
+            return false;
+        });
+
+        // 图形验证码
+        $('.login-captcha').click(function () {
+            this.src = this.src + '?t=' + (new Date).getTime();
+        });
+        $(".login-captcha").click()
+
+        //主题随机
+        var theme = ["colorful", "blue", "green", "purple", "pink", "cyan"];
+        var i = Math.round(Math.random() * 5);
+        admin.changeTheme("theme-" + theme[1]);
+    });
+
+</script>
+</body>
+</html>

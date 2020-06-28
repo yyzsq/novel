@@ -1,0 +1,18 @@
+
+package ${package}.${moduleName}.service;
+import com.baomidou.mybatisplus.extension.service.IService;
+import ${package}.${moduleName}.entity.${className};
+
+/**
+ * @Title: ${className}Service
+ * @Date: ${datetime}
+ * @Version: v1.0
+ * @Description: ${comments}服务接口
+ * @Author: ${author}
+ * @Email: ${email}
+ * @Copyright: Copyright (c) 2020 wanyong
+ * @Company: www.gemframework.com
+ */
+public interface ${className}Service extends IService<${className}> {
+
+}
