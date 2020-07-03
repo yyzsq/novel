@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>作家专区</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/reset_min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/index.css}">
+    <script type="text/javascript" th:src="@{/html5/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/zuojia.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/flexslider.css}" />
+    <script type="text/javascript" th:src="@{/html5/js/jquery.flexslider-min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/jquery.placeholder.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/waterwheelcarousel.min.js}"></script>
+<script>
+    $(function(){
+        $('input[placeholder]').placeholder();
+        $('textarea[placeholder]').placeholder();
+    });
+ </script>
+
+</head>
+
+<body style="background: #f5f5f5; ">
+
+
+
+<div class="Help">
+    <a href="javascript:;">在线求助</a>
+</div>
+
+
+
+
+<!-- 侧边悬浮内容 -->
+<div class="xf-side clearfix js-right-fixed">
+
+    <h3><img th:src="@{/html5/images/TU-LOGO.png}" /></h3>
+    <div class="xf-side-menu clearfix ">
+        <div class="xf-lxbj clearfix">
+            <span>联系<br>编辑</span>
+
+            <div class="xf-menu-tc clearfix">
+                <div class="iconfont xsj">&#xe607;</div>
+                <div class="xf-menu-tc-cont">
+
+                    <dl>
+                        <dt><i></i>女频编辑</dt>
+                        <dd class="nv-bianji-info">
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4><h4>
+                            <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                <i></i>小妞妞
+                            </a> 35071465059
+                        </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+
+
+                        </dd>
+                    </dl>
+
+                    <dl class="npbj-dd">
+                        <dt><i class="npbj"></i>男频编辑</dt>
+                        <dd class="nan-bianji-info">
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="xf-fhdb clearfix">
+            <i></i>
+            <em class="iconfont">&#xe606;</em>
+            <p>顶部</p>
+        </div>
+    </div>
+
+</div>
+<!-- 侧边悬浮内容 end-->
+
+
+
+
+
+<!-- 头部 -->
+
+    <div class="s-header clearfix" style="position:relative; display: block;">
+        <div class="s-header-cont clearfix">
+            <a href="javascript:;" class="s-logo"><img src="images/logo.png" alt=""></a>
+
+            <div class="s-nav clearfix">
+                <a href="index.html"><i></i>首页</a>
+                <a href="nansheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html" ><i></i>男生原创</a>
+                <a href="javascript:;" ><i></i>出版图书</a>
+                <a href="shuku.html" ><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+                <a href="zuojia.html" class='on' ><i></i>作家专区</a>
+            </div>
+
+            <div class="header-search s-header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+
+        </div>
+    </div>
+
+   
+
+    <!-- 悬浮头部 -->
+    <div class="s-header clearfix js-sheader-fixed">
+        <div class="s-header-cont clearfix">
+            <a href="javascript:;" class="s-logo"><img src="images/logo.png" alt=""></a>
+
+            <div class="s-nav clearfix">
+                <a href="index.html"><i></i>首页</a>
+                <a href="nansheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html" ><i></i>男生原创</a>
+                <a href="javascript:;" ><i></i>出版图书</a>
+                <a href="shuku.html" ><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+                <a href="zuojia.html" class='on' ><i></i>作家专区</a>
+            </div>
+
+            <div class="header-search s-header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 悬浮头部 end-->
+
+
+<!-- 头部 end -->
+
+
+
+
+
+<style type="text/css">
+.zj-dt-cont .dt-banner{ width: 870px; height: 220px;  margin-right: 0px !important;  }  
+.zj-dt-cont .dt-banner img{ height: 220px;} 
+.zj-dt-box{ width: 280px; float: right; background:url(images/zj-ad-bg.jpg) no-repeat; height:220px;   }
+.zj-dt-tx img{ display: block;  width: 60px; height: 60px; margin: 20px auto 10px; border-radius: 50%; border: 2px solid #fff; background: #eee; box-shadow: 0 0 9px 2px rgba(141,25,8,.3);  }
+.zj-dt-box p{ font-size: 20px; font-weight: bold; color: #fff; padding: 0 10px; box-sizing: border-box; overflow:hidden; text-overflow: ellipsis; white-space: nowrap; text-align: center; margin-bottom: 35px; margin-top: 15px;   }
+.zj-dt-btn a{ color: #ff5b43;  font-size: 16px; background: #fff; width: 215px; height: 36px; line-height: 36px; border-radius: 5px; display: block; margin: 0 auto; text-align: center;  }
+.zj-dt-btn a:hover{ opacity: .8;  }
+
+</style>
+
+
+
+
+<!-- 广告+动态 -->
+<div class="dt wrapper clearfix zj-dt-cont">
+    <!-- 焦点图 -->
+    <div class="dt-banner focus flexslider clearfix">
+            <ul class="slides">
+               <!-- <li><a href="javascript:;"><img src="images/banner.jpg" /></a></li>
+                <li><a href="javascript:;"><img src="images/banner.jpg" /></a></li>
+                <li><a href="javascript:;"><img src="images/banner.jpg" /></a></li>
+                <li><a href="javascript:;"><img src="images/banner.jpg" /></a></li>-->
+            </ul>
+    </div>
+
+    <!-- 广告图片 -->
+    <div class="zj-dt-box clearfix">
+       <div class="zj-dt-tx"><a href="javascript:;"><img src="images/tx.jpg" /></a></div>
+       <p>td34234234234</p>
+       <div class="zj-dt-btn"><a href="javascript:;">申请成为作者</a></div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript">
+    $(function() {
+        $(".focus").flexslider({
+            animation: "slider",
+            slideDirection: "horizontal",
+            slideshowSpeed: 4000, //展示时间间隔ms
+            animationSpeed: 400, //滚动时间ms
+            touch: true ,//是否支持触屏滑动
+            pauseOnAction: false, 
+            directionNav: true,  //是否显示左右控制按钮
+            controlNav: true
+        });
+    }); 
+</script>
+
+<!-- 广告+动态 end -->
+
+
+
+
+
+
+
+<!-- 内容区域 -->
+<div class="zj-cont wrapper clearfix">
+
+
+    <div class="box-left">
+      <h1>作家专栏</h1>
+      <div class="box-left1 clearfix">
+
+              <a href="javascript:;" class="clearfix">
+                    <img src="images/zj-pic.jpg" class="box-show-pic">
+                    <div class="box-left-list">
+                        <h2>【九羲】塔读全攻略（进阶篇）</h2>
+                        <p>Emmmm，看平时不少新来塔读的作者会遇到一些不懂的地方，总结一下很多作者常遇到的问题，做一个详细的汇总，万字长文预警。</p>
+                        <div class="box-left-edit">
+                            <span><i></i>塔读编辑部</span>
+                            <span>2020-06-17 11:18</span>
+                        </div>
+                    </div>
+              </a>
+
+              <a href="javascript:;" class="clearfix">
+                    <img src="images/zj-pic.jpg" class="box-show-pic">
+                    <div class="box-left-list">
+                        <h2>【九羲】塔读全攻略（进阶篇）</h2>
+                        <p>Emmmm，看平时不少新来塔读的作者会遇到一些不懂的地方，总结一下很多作者常遇到的问题，做一个详细的汇总，万字长文预警。</p>
+                        <div class="box-left-edit">
+                            <span><i></i>塔读编辑部</span>
+                            <span>2020-06-17 11:18</span>
+                        </div>
+                    </div> 
+              </a>
+
+              <a href="javascript:;" class="clearfix">
+                    <img src="images/zj-pic.jpg" class="box-show-pic">
+                    <div class="box-left-list">
+                        <h2>【九羲】塔读全攻略（进阶篇）</h2>
+                        <p>Emmmm，看平时不少新来塔读的作者会遇到一些不懂的地方，总结一下很多作者常遇到的问题，做一个详细的汇总，万字长文预警。</p>
+                        <div class="box-left-edit">
+                            <span><i></i>塔读编辑部</span>
+                            <span>2020-06-17 11:18</span>
+                        </div>
+                    </div> 
+              </a>
+
+              <a href="javascript:;" class="clearfix">
+                    <img src="images/zj-pic.jpg" class="box-show-pic">
+                    <div class="box-left-list">
+                        <h2>【九羲】塔读全攻略（进阶篇）</h2>
+                        <p>Emmmm，看平时不少新来塔读的作者会遇到一些不懂的地方，总结一下很多作者常遇到的问题，做一个详细的汇总，万字长文预警。</p>
+                        <div class="box-left-edit">
+                            <span><i></i>塔读编辑部</span>
+                            <span>2020-06-17 11:18</span>
+                        </div>
+                    </div> 
+              </a>
+
+
+        </div>
+        <div class="zj-more" ><a href="javascript:;">查看更多</a></div>
+
+    </div>
+
+
+
+
+
+<!-- 右侧 -->
+<div class="zj-right clearfix">
+
+
+    <div class="box-right">
+        <h1>最新资讯</h1>
+        <div class="box-right1">
+          
+            <a href="javascript:;" class="clearfix ">
+                <p>1、潜力新书榜优化</p>
+                <span>2019-10-23</span>
+            </a>
+            <a href="javascript:;" class="clearfix ">
+                <p>2、潜力新书榜优化</p>
+                <span>2019-10-23</span>
+            </a>
+            <a href="javascript:;" class="clearfix ">
+                <p>3、潜力新书榜优化力新书榜优力新书榜优</p>
+                <span>2019-10-23</span>
+            </a>
+ 
+
+        </div>
+    </div>
+
+
+
+    <div class="box-rightb">
+       <div class="box-right2">
+            <h1>官方产品</h1>
+            <div class="box-right-a">
+                <div class="accounts">
+                    <img src="images/ewm.jpg">
+                    <h2>塔读文学APP下载</h2>
+                    <em><i></i>扫码下载APP</em>
+                </div>
+                <span>看小说，上塔读APP！千万好书更新快，热门内容都覆盖~</span>
+                <hr>
+
+                <div class="accounts">
+                    <img src="images/ewm.jpg">
+                    <h2>塔读作家助手</h2>
+                    <em><i></i>微信扫码关注公众号</em>
+                </div>
+
+                <span>征文活动，作者访谈，邮箱投稿全掌握</span>
+
+            </div>
+      </div>
+    </div>
+
+
+</div>
+<!-- 右侧 end -->
+
+
+      
+
+
+</div>
+
+<!-- 内容区域  end -->
+
+
+
+
+
+
+
+
+<!-- 脚部 -->
+
+<div class="footer">
+    <div class="footer-cont">
+        <div class="ft-link">
+            <a href="javascript:;">关于七猫</a><i>|</i>
+            <a href="javascript:;">联系我们</a><i>|</i>
+            <a href="javascript:;">我要举报</a><i>|</i>
+            <a href="javascript:;">用户协议</a><i>|</i>
+            <a href="javascript:;">版权声明</a><i>|</i>
+            <a href="javascript:;">隐私协议</a><i>|</i>
+            <a href="javascript:;">我要当作家</a>
+        </div>
+
+        <div class="ft-copyright">
+            上海七猫文化传媒有限公司&nbsp;&nbsp;&nbsp;&copy;&nbsp;2017&nbsp;www.qimao.com&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn" target="_blank">沪ICP备17012825号-6</a>&nbsp;沪公网安备&nbsp;31011502010023号
+            <a href="javascript:;" target="_blank"><img src="images/gaj.jpg" alt=""></a>
+            <p>出版物经营许可证&nbsp;新出发沪批字第Y7129号&nbsp;&nbsp;沪网文&nbsp;[2017]&nbsp;4325-303号&nbsp;&nbsp;沪ICP证：沪B2-20190085</p>
+        </div>
+
+        <div class="ft-company">
+            <a href="javascript:;"><img src="images/xy-1.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-2.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-3.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-4.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-5.png" alt=""></a>
+        </div>
+    </div>
+</div>
+
+<!-- 脚部 end -->
+
+
+
+
+<!-- 申请成为作者弹窗 -->
+
+<div class="ds-tc none clearfix pl-tc" ></div>
+<div class="ds-tc-cont none pl-tc-cont clearfix ">
+    <div class="ds-close"><img src="images/icon-close.png" /></div>
+
+    <div class="sqzz-box">
+        <div class="sqzz-item clearfix">
+            <span><i>*</i>作者笔名</span>
+            <div class="spqq-item-cont">
+                <input class="spqq-ipt" placeholder="请填写1-10位中文、数字、字母" />
+            </div>
+        </div>
+
+        <div class="sqzz-item clearfix">
+            <span>真实姓名</span>
+            <div class="spqq-item-cont">
+                <input class="spqq-ipt" placeholder="请填写真实姓名" />
+            </div>
+        </div>
+
+
+        <div class="sqzz-item clearfix">
+            <span>性别</span>
+            <div class="spqq-item-cont">
+                <ul>
+                    <li class="on">
+                        <a href="javascript:;"><em></em><b>男</b></a>
+                    </li>
+                    <li>
+                        <a href="javascript:;"><em></em><b>女</b></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="sqzz-item clearfix">
+            <span>联系电话</span>
+            <div class="spqq-item-cont">
+                <input class="spqq-ipt" placeholder="请填写联系电话，方便编辑联系" />
+            </div>
+        </div>
+
+        <div class="sqzz-item clearfix">
+            <span>QQ</span>
+            <div class="spqq-item-cont">
+                <input class="spqq-ipt" placeholder="请填写QQ号，方便编辑联系" />
+            </div>
+        </div>
+
+        <div class="sqzz-item clearfix">
+            <span></span>
+            <div class="spqq-item-cont">
+                <div class="spqq-tips">
+                    <em></em><strong>我已阅读并同意 <a href="javascript:;">《 某某用户协议》</a></strong>
+                </div>
+            </div>
+        </div>
+
+
+    </div>    
+
+
+    <div class="yebz"><a href="javascript:;">提交申请</a></div>
+
+</div>
+
+
+
+
+
+</body>
+
+</html>

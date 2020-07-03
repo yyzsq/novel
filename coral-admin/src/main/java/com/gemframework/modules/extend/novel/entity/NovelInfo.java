@@ -38,11 +38,11 @@ public class NovelInfo extends BaseEntityPo {
     /**
      * 		 * 一级分类
      *         */
-    private String type1;
+    private Integer type1;
     /**
      * 		 * 二级分类
      *         */
-    private String type2;
+    private Integer type2;
     /**
      * 		 * 关联作者编号
      *         */
@@ -93,6 +93,8 @@ public class NovelInfo extends BaseEntityPo {
      * 		 * 请补充注释
      *         */
     private String other2;
+
+    private Integer channelType;
 
 }
 

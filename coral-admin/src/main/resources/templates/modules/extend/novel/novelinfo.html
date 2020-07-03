@@ -176,6 +176,7 @@
                         '<span class="layui-badge layui-badge-yellow">待审核</span>',
                         '<span class="layui-badge layui-badge-green">审核通过</span>',
                         '<span class="layui-badge layui-badge-red">审核未通过</span>',
+                        '<span class="layui-badge layui-badge-blue">已完本</span>'
                     ];
                     return strs[d.status];
                 }},
@@ -248,6 +249,27 @@
                             form.render('select');
                         }
                     });
+
+                    if(mData){
+                        $.ajax({
+                            url:"/extend/novel/novelType/list",
+                            data:{"fuId":mData.type1},
+                            dataType:"json",
+                            type:"get",
+                            async:false,
+                            success : function (res) {
+                                var userInfo="<option value=''>请选择二级分类</option>"
+                                for(var i=0;i<res.data.length;i++){
+                                    var info=res.data[i];
+                                    userInfo+="<option value='"+info.id+"'>"+info.typeName+"</option>"
+                                }
+                                $("[name='type2']").html("")
+                                $("[name='type2']").append(userInfo);
+                                form.render('select');
+                            }
+                        });
+                    }
+
                     form.val('dataForm', mData);  // 回显数据
 
                     layui.use('upload', function(){
@@ -268,6 +290,7 @@
                     });
                     // 添加权限信息
                     form.on('submit(saveBtn)', function (data) {
+                        data.field.imgUrl=$("[name='imgUrl']").attr("src")
                         $.post(mData ? 'novelInfo/update' : 'novelInfo/save', data.field, function (res) {
                             if (res.code == 0) {
                                 layer.close(dIndex);

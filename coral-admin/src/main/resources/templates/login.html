@@ -3,14 +3,14 @@
 <html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="common/links :: common_header(~{::title},~{::link},~{})">
     <script>if (window !== top) top.location.replace(location.href);</script>
-    <title>请您登录 | 小说网v1.0.0</title>
+    <title>请您登录 | 传火中文网</title>
     <link th:href="@{/coral/css/login.css}" rel="stylesheet">
 </head>
 <body>
 <div class="login-wrapper">
-    <div class="login-header">
+    <div class="login-header" style="text-align: center;">
         <!--<img th:src="@{/coral/images/logo.png}">-->
-        小说网
+        传火中文网
     </div>
     <form class="layui-form">
         <h2>用户登录</h2>
@@ -37,11 +37,11 @@
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-filter="loginSubmit" lay-submit>登录</button>
         </div>
-        <!--<div class="layui-form-item login-oauth-group text-center">
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-qq" style="color:#3492ed;"></i></a>&emsp;
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat" style="color:#4daf29;"></i></a>&emsp;
-            <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo" style="color:#CF1900;"></i></a>
-        </div>-->
+        <div class="layui-form-item login-oauth-group text-center">
+            <a href="javascript:;" onclick="toQqAuth()"><i class="layui-icon layui-icon-login-qq" style="color:#3492ed;"></i></a>&emsp;
+<!--            <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat" style="color:#4daf29;"></i></a>&emsp;
+            <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo" style="color:#CF1900;"></i></a>-->
+        </div>
     </form>
 </div>
 <div class="login-copyright">
@@ -135,6 +135,12 @@
         ];
         // $("body").css("background-image","url("+img_url[i]+")");
         $("body").css("background-image","url("+img_url[5]+")");
+        
+        window.toQqAuth = function (res) {
+            $.get("/extend/html5/qqAuth",function (res) {
+                
+            });
+        }
     });
 
 </script>

@@ -76,7 +76,9 @@ public class BaseController {
                 queryWrapper.ge(paramVal != null && StringUtils.isNotBlank(String.valueOf(paramVal)),"update_time",paramVal);
             }else if(entry.getKey().equalsIgnoreCase("endDate")){
                 queryWrapper.le(paramVal != null && StringUtils.isNotBlank(String.valueOf(paramVal)),"update_time",paramVal);
-            }else{
+            }else if(entry.getValue().getClass().equals(Integer.class)) {
+                queryWrapper.eq(paramVal != null && StringUtils.isNotBlank(String.valueOf(paramVal)),fieldName,paramVal);
+            }else {
                 queryWrapper.like(paramVal != null && StringUtils.isNotBlank(String.valueOf(paramVal)),fieldName,paramVal);
             }
         }

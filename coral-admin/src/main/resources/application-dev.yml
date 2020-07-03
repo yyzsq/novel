@@ -32,7 +32,7 @@ spring:
           #MySQL配置
           url: jdbc:mysql://123.57.215.35:3306/xiaoshuo?characterEncoding=utf8&useSSL=false&serverTimezone=GMT%2b8
           username: test
-          password: @YUANrise1234
+          password: '@YUANrise1234'
           driver-class-name: com.mysql.cj.jdbc.Driver
           #Oracle配置
           #    url: jdbc:oracle:thin:@127.0.0.1:1521:CORAL

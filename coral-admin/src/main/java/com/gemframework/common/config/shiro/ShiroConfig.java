@@ -71,9 +71,12 @@ public class ShiroConfig {
         filterChainDefinitionMap.put("/login*", "anon");
         filterChainDefinitionMap.put("/oauth/**", "anon");
         filterChainDefinitionMap.put("/coral/**", "anon");
+        filterChainDefinitionMap.put("/html5/**", "anon");
+        filterChainDefinitionMap.put("/upload/**", "anon");
         filterChainDefinitionMap.put("/assets/**", "anon");
         filterChainDefinitionMap.put("/kaptcha/code", "anon");
         filterChainDefinitionMap.put("/captcha/code", "anon");
+        filterChainDefinitionMap.put("/extend/html5/**", "anon");
 
         //注意：这行代码必须放在所有权限设置的最后，不然会导致所有 url 都被拦截
         filterChainDefinitionMap.put("/**", "authc");//剩余的都需要认证

@@ -22,7 +22,7 @@ spring:
 #文件上传
 file:
   staticAccessPath: /upload/**
-  uploadFolder: E://upload
+  uploadFolder: D://upload
   url: upload/
 
 ##自定义配置全局配置

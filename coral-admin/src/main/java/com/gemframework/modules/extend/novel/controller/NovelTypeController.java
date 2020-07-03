@@ -61,7 +61,7 @@ public class NovelTypeController extends BaseController {
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
             NovelTypeVo typeVo=GemBeanUtils.copyProperties((NovelType)obj,NovelTypeVo.class);
-            if(StringUtils.equals(typeVo.getFuId(),"0")){
+            if(StringUtils.equals(typeVo.getFuId().toString(),"0")){
                 typeVo.setFuName("顶级目录");
             }else {
                 NovelType novelType = novelTypeService.getById(typeVo.getFuId());
@@ -76,7 +76,6 @@ public class NovelTypeController extends BaseController {
      * @return
      */
     @GetMapping("/list")
-    @RequiresPermissions("novelType:list")
     public BaseResultData list(NovelTypeVo vo) {
         QueryWrapper queryWrapper = makeQueryMaps(vo);
         List<NovelType> list = novelTypeService.list(queryWrapper);

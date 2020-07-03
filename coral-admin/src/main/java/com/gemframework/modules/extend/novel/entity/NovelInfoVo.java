@@ -10,6 +10,7 @@
 package com.gemframework.modules.extend.novel.entity;
 
 import java.util.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.gemframework.model.common.BaseEntityVo;
@@ -38,7 +39,7 @@ public class NovelInfoVo extends BaseEntityVo {
      * 			 * 一级分类
      *             */
 
-    private String type1;
+    private Integer type1;
 
     private String type1Name;
 
@@ -46,7 +47,7 @@ public class NovelInfoVo extends BaseEntityVo {
      * 			 * 二级分类
      *             */
 
-    private String type2;
+    private Integer type2;
 
     private String type2Name;
 
@@ -126,4 +127,15 @@ public class NovelInfoVo extends BaseEntityVo {
     private String other2;
 
 
+    private String types;
+
+    private Integer channelType;
+
+    private String orderBys;
+
+    private String isWanJie;
+
+    private String gxTime;
+
+    private String newChapterTimeStr;
 }

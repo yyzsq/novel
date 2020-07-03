@@ -38,9 +38,9 @@ public class NovelTypeVo extends BaseEntityVo {
      * 			 * 父类ID
      *             */
 
-    private String type;
+    private Integer type;
 
-    private String fuId;
+    private Integer fuId;
 
     private String fuName;
 

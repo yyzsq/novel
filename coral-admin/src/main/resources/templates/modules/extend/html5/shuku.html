@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>书库</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/reset_min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/index.css}">
+    <script type="text/javascript" th:src="@{/html5/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/index.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/shuku.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/flexslider.css}" />
+    <script type="text/javascript" th:src="@{/html5/js/jquery.flexslider-min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/jquery.placeholder.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/waterwheelcarousel.min.js}"></script>
+
+<script>
+    $(function(){
+        $('input[placeholder]').placeholder();
+        $('textarea[placeholder]').placeholder();
+    });
+ </script>
+
+</head>
+
+<body>
+
+
+<!-- 侧边悬浮内容 -->
+<div class="xf-side clearfix js-right-fixed">
+
+    <h3><img th:src="@{/html5/images/TU-LOGO.png}" /></h3>
+    <div class="xf-side-menu clearfix ">
+        <div class="xf-lxbj clearfix">
+            <span>联系<br>编辑</span>
+
+            <div class="xf-menu-tc clearfix">
+                <div class="iconfont xsj">&#xe607;</div>
+                <div class="xf-menu-tc-cont">
+
+                    <dl>
+                        <dt><i></i>女频编辑</dt>
+                        <dd class="nv-bianji-info">
+                            <!--<h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>-->
+
+
+                        </dd>
+                    </dl>
+
+                    <dl class="npbj-dd">
+                        <dt><i class="npbj"></i>男频编辑</dt>
+                        <dd class="nan-bianji-info">
+                            <!--<h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>-->
+
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="xf-fhdb clearfix">
+            <i></i>
+            <em class="iconfont">&#xe606;</em>
+            <p>顶部</p>
+        </div>
+    </div>
+
+</div>
+<!-- 侧边悬浮内容 end-->
+
+
+
+
+<!-- 头部 -->
+<div class="header clearfix">
+    <div class="header-cont clearfix">
+
+        <div class="left-cont clearfix">
+            <a href="javascript:;" class="logo"><img th:src="@{/html5/images/chuanhuologo.png}" alt=""></a>
+        </div>
+
+        <div class="middle-cont clearfix">
+            <div class="header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+            <div class="header-search-gjc clearfix sous-ggao-group">
+               <!-- <a href="javascript:;" class="cl-r">剑来</a>
+                <a href="javascript:;">双世宠妃</a>
+                <a href="javascript:;">九星霸体诀</a>
+                <a href="javascript:;">凰妃倾天下</a>  -->
+            </div>
+
+        </div> 
+
+
+         <div class="dlzc clearfix">
+            <a href="javascript:;">登录</a>
+            <a href="javascript:;">注册</a>                
+        </div>
+
+    </div>
+</div>
+
+
+    <!-- 导航 -->
+    <div class="header-menu clearfix">
+        <div class="header-menu-cont clearfix">
+            <div class="left-menu clearfix">
+                <a href="index.html" ><i></i>首页</a>
+                <a href="nvsheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html"  ><i></i>男生原创</a>
+                <a href="shuku.html" class='on'><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+            </div>
+            <div class="right-menu clearfix">
+                <a href="zuojia.html"><i class="iconfont">&#xe600;</i>作家专区</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航 end-->
+
+
+
+    <!-- 悬浮头部 -->
+    <div class="s-header clearfix js-sheader-fixed">
+        <div class="s-header-cont clearfix">
+            <a href="javascript:;" class="s-logo1"><img th:src="@{/html5/images/chuanhuologo.png}" alt=""></a>
+
+            <div class="s-nav clearfix">
+                <a href="index.html"><i></i>首页</a>
+                <a href="nvsheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html" ><i></i>男生原创</a>
+                <a href="shuku.html" class='on' ><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+                <a href="zuojia.html" ><i></i>作家专区</a>
+            </div>
+
+            <div class="header-search s-header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- 悬浮头部 end-->
+
+
+<!-- 头部 end -->
+
+
+
+
+
+<!-- 书库筛选 -->
+<div class="sk-choose wrapper clearfix">
+
+    <div class="sk-choose-item clearfix">
+        <span>频道:</span>
+        <div class="sk-choose-gjc clearfix pd-info-group">
+            <a href="javascript:;" flag="-1" class="on">全部</a>
+            <a href="javascript:;" flag="0" class="">女生原创</a>
+            <a href="javascript:;" flag="1" class="">男生原创</a>
+        </div>
+    </div>
+    <div class="sk-choose-item clearfix">
+        <span>作品分类:</span>
+        <div class="sk-choose-gjc clearfix">
+
+            <div class="sk-gjc-item clearfix">
+                <div class="sk-gjc-item-cont clearfix sk-type-info">
+                    <!--<a href="javascript:;" class="on">全部</a>
+                    <a href="javascript:;" class="">现代言情<i></i></a>
+                    <a href="javascript:;" class="">古代言情<i></i></a>
+                    <a href="javascript:;" class="">幻想言情<i></i></a>
+                    <a href="javascript:;" class="">青春校园<i></i></a>
+                    <a href="javascript:;" class="">历史<i></i></a>
+                    <a href="javascript:;" class="">军事<i></i></a>
+                    <a href="javascript:;" class="">科幻<i></i></a>
+                    <a href="javascript:;" class="">游戏<i></i></a>
+                    <a href="javascript:;" class="">游戏竞技<i></i></a>
+                    <a href="javascript:;" class="">二次元<i></i></a>
+                    <a href="javascript:;" class="">玄幻奇幻<i></i></a>
+                    <a href="javascript:;" class="">都市人生<i></i></a>
+                    <a href="javascript:;" class="">奇闻异事<i></i></a>
+                    <a href="javascript:;" class="">武侠仙侠<i></i></a>
+                    <a href="javascript:;" class="">体育<i></i></a>
+                    <a href="javascript:;" class="">N次元<i></i></a>-->
+                </div>
+                <div class="sk-gjc-ej-item clearfix sk-type-item">
+                     <!--<a href="javascript:;" class="">玄幻奇幻</a>
+                     <a href="javascript:;" class="">玄幻奇幻</a>-->
+                </div>
+            </div>
+
+
+           <!-- <div class="sk-gjc-item clearfix">
+                <div class="sk-gjc-item-cont clearfix">
+                    <a href="javascript:;" class="">玄幻奇幻<i></i></a>
+                    <a href="javascript:;" class="">都市人生<i></i></a>
+                    <a href="javascript:;" class="">奇闻异事<i></i></a>
+                    <a href="javascript:;" class="">武侠仙侠<i></i></a>
+                    <a href="javascript:;" class="">体育<i></i></a>
+                    <a href="javascript:;" class="">N次元<i></i></a>
+                    <a href="javascript:;" class="">文学艺术<i></i></a>
+                    <a href="javascript:;" class="">人文社科<i></i></a>
+                    <a href="javascript:;" class="">经管励志<i></i></a>
+                    <a href="javascript:;" class="">经典文学<i></i></a>
+                </div>
+                 <div class="sk-gjc-ej-item clearfix">
+                     <a href="javascript:;" class="">上古洪荒</a>
+                     <a href="javascript:;" class="">武侠幻想</a>
+                </div>
+            </div>-->
+        
+
+           <!-- <div class="sk-gjc-item clearfix">
+                <div class="sk-gjc-item-cont clearfix">
+                    <a href="javascript:;" class="">出版小说<i></i></a>
+                    <a href="javascript:;" class="">少儿教育<i></i></a>
+                </div>
+                 <div class="sk-gjc-ej-item clearfix">
+                     <a href="javascript:;" class="">上古洪荒</a>
+                     <a href="javascript:;" class="">武侠幻想</a>
+                </div>
+            </div>-->
+        
+         
+
+        </div>
+    </div>
+    <div class="sk-choose-item clearfix">
+        <span>作品字数:</span>
+        <div class="sk-choose-gjc clearfix sk-zs-group">
+            <a href="javascript:;" flag="-1" class="on">全部</a>
+            <a href="javascript:;" flag="30" class="">30万以下</a>
+            <a href="javascript:;" flag="30,50" class="">30万-50万</a>
+            <a href="javascript:;" flag="50,100" class="">50万-100万</a>
+            <a href="javascript:;" flag="100-200" class="">100万-200万</a>
+            <a href="javascript:;" falg="200" class="">200万以上</a>
+        </div>
+    </div>
+    <div class="sk-choose-item clearfix">
+        <span>更新时间:</span>
+        <div class="sk-choose-gjc clearfix gx-time-group">
+            <a href="javascript:;" flag="-1" class="on">全部</a>
+            <a href="javascript:;" flag="3" class="">3天内</a>
+            <a href="javascript:;" flag="7" class="">7天内</a>
+            <a href="javascript:;" flag="30" class="">30天内</a>
+        </div>
+    </div>
+    <div class="sk-choose-item clearfix">
+        <span>是否完结:</span>
+        <div class="sk-choose-gjc clearfix is-wj-group">
+            <a href="javascript:;" flag="-1" class="on">全部</a>
+            <a href="javascript:;" flag="1" class="">已完结</a>
+            <a href="javascript:;" flag="0" class="">连载中</a>
+        </div>
+    </div>
+
+
+</div>
+<!-- 书库筛选 end -->
+
+
+
+
+
+<!-- 筛选tab -->
+<div class="wrapper sk-tab clearfix mt-24">
+    <div class="sk-tab-left clearfix px-lx-group">
+        <ul>
+            <li class="on" flag="popularity">
+                <a href="javascript:;"><em></em><span>按人气值</span></a>
+            </li>
+            <li flag="char_number">
+                <a href="javascript:;"><em></em><span>按总字数</span></a>
+            </li>
+            <li flag="new_chapter_time">
+                <a href="javascript:;"><em></em><span>最近更新</span></a>
+            </li>
+            <!--<li>
+                <a href="javascript:;"><em></em><span>按收藏数</span></a>
+            </li>-->
+        </ul>
+    </div>
+
+    <div class="sk-tab-right clearfix">
+        <a href="javascript:;" class="on"><i class="iconfont" style="font-size: 14px;">&#xe603;</i><span>图文</span></a>
+        <a href="javascript:;"><i class="iconfont">&#xe604;</i><span>文字</span></a>
+    </div>
+
+</div>
+<!-- 筛选tab  end-->
+
+
+
+<!-- 书库列表 -->
+<div class="sk-cont wrapper clearfix">
+    <!-- 图文列表展示 -->
+    <div class="sk-cont-item tw-list clearfix">
+        <dl class="clearfix tw-list-group">
+            <!--<dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> 
+            <dd>
+                <div class="sk-cont-pic clearfix">
+                    <a href="javascript:;"><img src="images/pic/ts-show.jpg"></a>
+                </div>
+                <h6><a href="javascript:;">三爷宠妻太操心</a></h6>
+                <div class="sk-cont-info clearfix">
+                    <i>都市人生</i>
+                    <span>连载中</span>
+                    <span>177.41万字</span>
+                </div>
+                <h5>唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。唐诗怀孕的时候，薄夜亲手将她送进了监狱。</h5>
+                <h4>
+                    <span>坑爷不坑爹<em>2020-06-28更</em></span>
+                </h4>
+            </dd> -->
+
+        </dl> 
+
+        <!--页码 上下页 -->
+        <div class="page-number clearfix page-number-group">
+            <ul>
+               <!-- <li flag="-1" class="disabled up-page">上一页</li>
+                <li class="on" flag="1">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li flag="-5">...</li>
+                <li>176</li>
+                <li flag="-2" class="next-page">下一页</li>
+                <li flag="-3"><input name="tzNumber" type="text" /></li>
+                <li flag="-4" class="tiaoz-page">跳转</li>-->
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- 图文列表展示 end-->
+
+    <!-- 文字列表展示 -->
+    <div class="sk-cont-item wz-list none clearfix">
+            
+            <table class="table wz-list-group">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>分类</th>
+                        <th>书名</th>
+                        <th>最新章节</th>
+                        <th>作者</th>
+                        <th>字数</th>
+                        <th>状态</th>
+                        <th style=" text-align: right;">更新时间</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <!--<tr>
+                        <td class="cl-g">1</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">2</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">3</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">4</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">5</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">6</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">7</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">8</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">9</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">10</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">11</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">12</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">13</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">14</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>
+                    <tr>                     
+                        <td class="cl-g">15</td>
+                        <td class="cl-g"><a href="javascript:;">[宫闱宅斗]</a></td>
+                        <td><a href="javascript:;">重生后我嫁了个瘸子王爷</a></td>
+                        <td><a href="javascript:;">第177章 坐等良人归来</a></td>
+                        <td class="cl-g"><a href="javascript:;">灯火阑珊</a></td>
+                        <td class="cl-g">177.33万字</td>
+                        <td class="cl-g">连载中</td>
+                        <td style=" text-align: right;"><span>2020-06-28 11:49<span></td>
+                    </tr>-->
+
+                    
+                    
+                </tbody>
+            </table>
+
+
+        <!--页码 上下页 -->
+        <div class="page-number clearfix">
+            <ul>
+                <li class="disabled">上一页</li>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>...</li>
+                <li>176</li>
+                <li>下一页</li>
+                <li><input type="text" /></li>
+                <li>跳转</li>
+            </ul>
+        </div>
+
+    </div>
+    <!-- 文字列表展示 end -->
+
+</div>
+<!-- 书库列表 end -->
+
+
+
+
+
+
+
+
+<!-- 脚部 -->
+
+<div class="footer">
+    <div class="footer-cont">
+        <div class="ft-link">
+            <a href="javascript:;">关于七猫</a><i>|</i>
+            <a href="javascript:;">联系我们</a><i>|</i>
+            <a href="javascript:;">我要举报</a><i>|</i>
+            <a href="javascript:;">用户协议</a><i>|</i>
+            <a href="javascript:;">版权声明</a><i>|</i>
+            <a href="javascript:;">隐私协议</a><i>|</i>
+            <a href="javascript:;">我要当作家</a>
+        </div>
+
+        <div class="ft-copyright">
+            上海七猫文化传媒有限公司&nbsp;&nbsp;&nbsp;&copy;&nbsp;2017&nbsp;www.qimao.com&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn" target="_blank">沪ICP备17012825号-6</a>&nbsp;沪公网安备&nbsp;31011502010023号
+            <a href="javascript:;" target="_blank"><img src="images/gaj.jpg" alt=""></a>
+            <p>出版物经营许可证&nbsp;新出发沪批字第Y7129号&nbsp;&nbsp;沪网文&nbsp;[2017]&nbsp;4325-303号&nbsp;&nbsp;沪ICP证：沪B2-20190085</p>
+        </div>
+
+        <div class="ft-company">
+            <a href="javascript:;"><img src="images/xy-1.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-2.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-3.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-4.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-5.png" alt=""></a>
+        </div>
+    </div>
+</div>
+
+<!-- 脚部 end -->
+
+
+
+</body>
+
+</html>

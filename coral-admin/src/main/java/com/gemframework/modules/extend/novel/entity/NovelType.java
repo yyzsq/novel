@@ -38,9 +38,9 @@ public class NovelType extends BaseEntityPo {
     /**
      * 		 * 父类ID
      *         */
-    private String type;
+    private Integer type;
 
-    private String fuId;
+    private Integer fuId;
     /**
      * 		 * 请补充注释
      *         */
