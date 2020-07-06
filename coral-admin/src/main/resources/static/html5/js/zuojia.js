@@ -51,38 +51,6 @@ $(function () {
     });
 
 
- /*   $.ajax({
-        url: "/extend/html5/contactlist",
-        dataType: "json",
-        type: "get",
-        success: function (res) {
-            var tpHtml="";
-            var nvHtml = "";
-            var nanHtml = "";
-            for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i];
-                tpHtml +="<h3><img src="+info.picture+"/></h3>";
-                if (info.channel == "0") {
-                    nvHtml += "<h4>\n" +
-                        "        <a href="+info.link+">\n" +
-                        "                 <i></i>"+info.editorName+"\n" +
-                        "         </a> "+info.qq+"\n" +
-                        "         </h4>";
-                } else {
-                    nanHtml += "<h4>\n" +
-                        "        <a href="+info.link+">\n" +
-                        "                 <i></i>"+info.editorName+"\n" +
-                        "         </a> "+info.qq+"\n" +
-                        "         </h4>";
-                }
-
-            }
-            $(".xf-menu-tc-cont").html(tpHtml);
-            $(".xf-menu-tc-cont").html(nvHtml);
-            $(".xf-menu-tc-cont").html(nanHtml);
-        }
-    })*/
-
     $.ajax({
         url: "/extend/html5/contactlist",
         dataType: "json",
