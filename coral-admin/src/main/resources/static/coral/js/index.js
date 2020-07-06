@@ -2,12 +2,12 @@
     $.learunindex = {
         jsonWhere: function (data, action) {
             if (action == null) return;
-            var reval = new Array();
+            var reval = [];
             $(data).each(function (i, v) {
                 if (action(v)) {
                     reval.push(v);
                 }
-            })
+            });
             return reval;
         },
         makeHtml: function (datas) {
@@ -80,8 +80,8 @@
                         mdata = menusData_def;
                     }
                 }
-            })
-            var left_html =  get_html(mdata)
+            });
+            var left_html =  get_html(mdata);
             $("#sidebar-menu-basic").append(left_html);
         }
     };

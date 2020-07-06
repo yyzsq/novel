@@ -7,7 +7,7 @@ $(function () {
         success: function (res) {
             var htmlInfo="";
             for(var i=0;i<res.data.length;i++){
-                var info=res.data[i]
+                var info=res.data[i];
                 htmlInfo+="<li><a href=\""+info.link+"\" target='_blank'><img src=\""+info.picture+"\" /></a></li>"
             }
             $(".ns-lunbo-info").html(htmlInfo);
@@ -37,8 +37,8 @@ $(function () {
         }
     });
 
-    var nanList=new Array();
-    var nvList=new Array();
+    var nanList=[];
+    var nvList=[];
 
     //获取男女生分类
     $.ajax({
@@ -56,7 +56,7 @@ $(function () {
                 }
             }
         }
-    })
+    });
 
     $.ajax({
         url:"/extend/html5/chapterpage",
@@ -239,7 +239,7 @@ $(function () {
             }
             $(".nan-bj-info").html(nvHtml);
         }
-    })
+    });
 
     //获取搜索框下方广告位
     $.ajax({
@@ -250,10 +250,10 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<a href=\""+info.link+"\" class='"+(i==0?"cl-r":"")+"' >"+info.title+"</a>";
             }
             $(".sous-ggao-group").html(htmlInfo);
         }
     });
-})
+});

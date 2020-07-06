@@ -46,9 +46,6 @@ public class VerifyCodeUtils {
         }
         //获取用户输入的验证码
         String verifyCodeActual = VerifyCodeUtils.getString(request, "validCode");
-        if(verifyCodeActual == null ||!verifyCodeActual.equalsIgnoreCase(verifyCodeExpected)) {
-            return false;
-        }
-        return true;
+        return verifyCodeActual != null && verifyCodeActual.equalsIgnoreCase(verifyCodeExpected);
     }
 }

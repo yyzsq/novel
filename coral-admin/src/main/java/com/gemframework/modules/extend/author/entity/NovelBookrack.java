@@ -10,6 +10,7 @@
 package com.gemframework.modules.extend.author.entity;
 import java.util.Date;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import com.gemframework.model.common.BaseEntityPo;
 import lombok.Data;
 

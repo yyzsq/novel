@@ -83,11 +83,11 @@
         $themItem.click(function () {
             $themItem.removeClass('active');
             $(this).addClass('active');
-            console.log($(this).attr("data-theme"))
+            console.log($(this).attr("data-theme"));
             var themeName = $(this).attr("data-theme");
             if(themeName == 'theme-white' || themeName == 'theme-colorful' || themeName == 'theme-pink'){
             }
-            console.log("=="+$(this).data('theme'))
+            console.log("=="+$(this).data('theme'));
             admin.changeTheme($(this).data('theme'));
         });
         var theme = $body.data('theme');

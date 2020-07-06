@@ -5,7 +5,7 @@
  */
 layui.define(['layer', 'form'], function(exports){
   var layer = layui.layer,form = layui.form,$ = layui.$,key = '';
-    delHtml()
+    delHtml();
   $('button').on('click',function(){
   	var _this = $(this),
   		 size = _this.data('size'),
@@ -14,34 +14,34 @@ layui.define(['layer', 'form'], function(exports){
       key = randStrName();
   	switch (type) {
         case 'text':
-            html = input(type,size)
+            html = input(type,size);
             break;
         case 'password':
-            html = input(type,size)
+            html = input(type,size);
             break;
         case 'select':
-            html = select(size)
+            html = select(size);
             break;
         case 'checkbox_a':
-            html = checkbox_a(size)
+            html = checkbox_a(size);
             break;
         case 'checkbox_b':
-            html = checkbox_b(size)
+            html = checkbox_b(size);
             break;
         case 'radio':
-            html = radio(size)
+            html = radio(size);
             break;
         case 'textarea':
-            html = textarea(size)
+            html = textarea(size);
             break;
         case 'submit':
-            html = submits(size)
+            html = submits(size);
             break;
         case 'del':
-            $('form').html("\n")
-            delHtml()
-            $('.code-show').text('')
-            return false
+            $('form').html("\n");
+            delHtml();
+            $('.code-show').text('');
+            return false;
             break;
         default:
             layer.msg('类型错误',{icon:2})
@@ -52,7 +52,7 @@ layui.define(['layer', 'form'], function(exports){
     setHtml(html)
 
 
-  })
+  });
 
     function delHtml() {
         layui.data('form_html', {
@@ -71,7 +71,7 @@ layui.define(['layer', 'form'], function(exports){
         layui.data('form_html',{
             key:'html',
             value:_d
-        })
+        });
         $('.code-show').text('<form class="layui-form" action="" onsubmit="return false">\n' +_d+ '</form>')
 
     }
@@ -165,9 +165,9 @@ layui.define(['layer', 'form'], function(exports){
     function randStrName() {
         return Math.random().toString(36).substr(8);
     }
-    $('.click-but button').click()
+    $('.click-but button').click();
     var jscodehtml = jscode();
-    $('.js-show').text(jscodehtml)
+    $('.js-show').text(jscodehtml);
     form.on('submit(formDemo)', function(data){
         layer.msg(JSON.stringify(data.field));
         return false;

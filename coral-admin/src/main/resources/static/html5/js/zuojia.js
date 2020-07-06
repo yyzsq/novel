@@ -7,7 +7,7 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo+=" <a href=\"javascript:;\" class=\"clearfix\">\n" +
                     "                    <img src=\"images/zj-pic.jpg\" class=\"box-show-pic\">\n" +
                     "                    <div class=\"box-left-list\">\n" +
@@ -33,7 +33,7 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<li><a href="+info.link+"><img src="+info.picture+" /></a></li>";
             }
             $(".dt-banner ul").html(htmlInfo);
@@ -81,4 +81,4 @@ $(function () {
         }
     })
 
-})
+});

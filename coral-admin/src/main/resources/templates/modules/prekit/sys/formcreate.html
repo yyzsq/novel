@@ -1,0 +1,69 @@
+
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common/links :: common_header(~{::title},~{::link},~{})">
+    <title>表单生成器</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/coral/css/formcreate.css}" media="all">
+</head>
+<body>
+<div class="layui-fluid" >
+    <div class="layui-row layui-col-space10">
+        <div class="layui-col-md1">
+            <div class="layui-card nav click-but">
+                <div class="layui-card-header">长</div>
+                <div class="layui-card-body">
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="text">输入框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="password">密码框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="select">选择框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="checkbox_a">复选框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="checkbox_b">开关</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="radio">单选框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="textarea">文本域</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="submit">提交</button>
+                </div>
+            </div>
+            <div class="layui-card nav">
+                <div class="layui-card-header">短</div>
+                <div class="layui-card-body">
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="text">输入框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="password">密码框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="select">选择框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="checkbox_a">复选框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="checkbox_b">开关</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="radio">单选框</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="inline" data-type="textarea">文本域</button>
+                    <button class="layui-btn" style="width: 65px;padding: 0;" data-size="block" data-type="submit">提交</button>
+                </div>
+            </div>
+
+        </div>
+        <div class="layui-col-md5">
+            <div class="layui-card content">
+                <div class="layui-card-header">表单生成器
+                    <button class="layui-btn layui-btn-sm layui-btn-danger del-form" data-type="del"> <i class="layui-icon">&#xe640;</i></button>
+                </div>
+                <div class="layui-card-body code"><form class="layui-form" action="" onsubmit="return false">
+                </form></div>
+            </div>
+        </div>
+        <div class="layui-col-md6">
+            <div class="layui-card r-code-html">
+                <div class="layui-card-header">html</div>
+                <div class="layui-card-body">
+                    <textarea name=""  class="layui-textarea code-show"></textarea>
+                </div>
+            </div>
+            <div class="layui-card r-code-js">
+                <div class="layui-card-header">JS</div>
+                <div class="layui-card-body">
+                    <textarea name=""  class="layui-textarea js-show"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- js部分 -->
+<div th:replace="common/scripts :: common"></div>
+<div th:replace="common/scripts :: formcreate"></div>
+</body>
+</html>

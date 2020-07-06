@@ -41,7 +41,7 @@ public class Base64Utils {
             if (b2 == -1) {
                 break;
             }
-            buf.write((int) ((b1 << 2) | ((b2 & 0x30) >>> 4)));
+            buf.write((b1 << 2) | ((b2 & 0x30) >>> 4));
 
             do {
                 b3 = data[i++];
@@ -53,7 +53,7 @@ public class Base64Utils {
             if (b3 == -1) {
                 break;
             }
-            buf.write((int) (((b2 & 0x0f) << 4) | ((b3 & 0x3c) >>> 2)));
+            buf.write(((b2 & 0x0f) << 4) | ((b3 & 0x3c) >>> 2));
 
             do {
                 b4 = data[i++];
@@ -65,7 +65,7 @@ public class Base64Utils {
             if (b4 == -1) {
                 break;
             }
-            buf.write((int) (((b3 & 0x03) << 6) | b4));
+            buf.write(((b3 & 0x03) << 6) | b4);
         }
         return new String(buf.toByteArray());
     }

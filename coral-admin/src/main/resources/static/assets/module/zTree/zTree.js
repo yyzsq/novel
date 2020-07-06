@@ -1703,7 +1703,7 @@ layui.define(['jquery'], function (exports) {
                     } else if (setting.async.enable) {
                         if (!view.asyncNode(setting, node)) {
                             view.expandCollapseNode(setting, node, !node.open);
-                            return;
+
                         }
                     } else if (node) {
                         view.expandCollapseNode(setting, node, !node.open);
@@ -2178,22 +2178,22 @@ layui.define(['jquery'], function (exports) {
                             this.setting.treeObj.trigger(consts.event.CHECK, [null, this.setting.treeId, node]);
                         }
                     }
-                }
+                };
 
                 zTreeTools.checkAllNodes = function (checked) {
                     view.repairAllChk(this.setting, !!checked);
-                }
+                };
 
                 zTreeTools.getCheckedNodes = function (checked) {
                     var checked = (checked !== false);
                     var children = data.nodeChildren(setting, data.getRoot(this.setting));
                     return data.getTreeCheckedNodes(this.setting, children, checked);
-                }
+                };
 
                 zTreeTools.getChangeCheckedNodes = function () {
                     var children = data.nodeChildren(setting, data.getRoot(this.setting));
                     return data.getTreeChangeCheckedNodes(this.setting, children);
-                }
+                };
 
                 zTreeTools.setChkDisabled = function (node, disabled, inheritParent, inheritChildren) {
                     disabled = !!disabled;
@@ -2201,7 +2201,7 @@ layui.define(['jquery'], function (exports) {
                     inheritChildren = !!inheritChildren;
                     view.repairSonChkDisabled(this.setting, node, disabled, inheritChildren);
                     view.repairParentChkDisabled(this.setting, node.getParentNode(), disabled, inheritParent);
-                }
+                };
 
                 var _updateNode = zTreeTools.updateNode;
                 zTreeTools.updateNode = function (node, checkTypeFlag) {
@@ -2622,7 +2622,7 @@ layui.define(['jquery'], function (exports) {
             if (_createNodes) _createNodes.apply(view, arguments);
             if (!nodes) return;
             view.repairParentChkClassWithSelf(setting, parentNode);
-        }
+        };
         var _removeNode = view.removeNode;
         view.removeNode = function (setting, node) {
             var parentNode = node.getParentNode();
@@ -2630,7 +2630,7 @@ layui.define(['jquery'], function (exports) {
             if (!node || !parentNode) return;
             view.repairChkClass(setting, parentNode);
             view.repairParentChkClass(setting, parentNode);
-        }
+        };
 
         var _appendNodes = view.appendNodes;
         view.appendNodes = function (setting, level, nodes, parentNode, index, initFlag, openFlag) {
@@ -2728,7 +2728,7 @@ layui.define(['jquery'], function (exports) {
                 r.curHoverNode = null;
                 r.dragFlag = 0;
                 r.dragNodeShowBefore = [];
-                r.dragMaskList = new Array();
+                r.dragMaskList = [];
                 rs.showHoverDom = true;
             },
             //default cache of exedit
@@ -2827,7 +2827,7 @@ layui.define(['jquery'], function (exports) {
                     var root = data.getRoot(this.setting);
                     if (!root.curEditNode) return;
                     view.cancelCurEditNode(this.setting, newName ? newName : null, true);
-                }
+                };
                 zTreeTools.copyNode = function (targetNode, node, moveType, isSilent) {
                     if (!node) return null;
                     var isParent = data.nodeIsParent(setting, targetNode);
@@ -2853,12 +2853,12 @@ layui.define(['jquery'], function (exports) {
                         view.moveNode(this.setting, targetNode, newNode, moveType, false, isSilent);
                     }
                     return newNode;
-                }
+                };
                 zTreeTools.editName = function (node) {
                     if (!node || !node.tId || node !== data.getNodeCache(this.setting, node.tId)) return;
                     if (node.parentTId) view.expandCollapseParentNode(this.setting, node.getParentNode(), true);
                     view.editNode(this.setting, node)
-                }
+                };
                 zTreeTools.moveNode = function (targetNode, node, moveType, isSilent) {
                     if (!node) return node;
                     var isParent = data.nodeIsParent(setting, targetNode);
@@ -2881,7 +2881,7 @@ layui.define(['jquery'], function (exports) {
                         moveCallback();
                     }
                     return node;
-                }
+                };
                 zTreeTools.setEditable = function (editable) {
                     this.setting.edit.enable = editable;
                     return this.refresh();
@@ -3796,7 +3796,7 @@ layui.define(['jquery'], function (exports) {
                 }
             }
             if (_cancelPreSelectedNode) _cancelPreSelectedNode.apply(view, arguments);
-        }
+        };
 
         var _createNodes = view.createNodes;
         view.createNodes = function (setting, level, nodes, parentNode, index) {
@@ -3807,12 +3807,12 @@ layui.define(['jquery'], function (exports) {
             if (view.repairParentChkClassWithSelf) {
                 view.repairParentChkClassWithSelf(setting, parentNode);
             }
-        }
+        };
 
         var _makeNodeUrl = view.makeNodeUrl;
         view.makeNodeUrl = function (setting, node) {
             return setting.edit.enable ? null : (_makeNodeUrl.apply(view, arguments));
-        }
+        };
 
         var _removeNode = view.removeNode;
         view.removeNode = function (setting, node) {
@@ -3821,7 +3821,7 @@ layui.define(['jquery'], function (exports) {
             if (_removeNode) {
                 _removeNode.apply(view, arguments);
             }
-        }
+        };
 
         var _selectNode = view.selectNode;
         view.selectNode = function (setting, node, addFlag) {
@@ -3832,7 +3832,7 @@ layui.define(['jquery'], function (exports) {
             if (_selectNode) _selectNode.apply(view, arguments);
             view.addHoverDom(setting, node);
             return true;
-        }
+        };
 
         var _uCanDo = tools.uCanDo;
         tools.uCanDo = function (setting, e) {

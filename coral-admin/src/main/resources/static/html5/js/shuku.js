@@ -3,9 +3,9 @@ $(function(){
     var countPage=1;
     var startIndex=1;
     var endIndex=10;
-    var nanList = new Array();
-    var nvList = new Array();
-    var allList = new Array();
+    var nanList = [];
+    var nvList = [];
+    var allList = [];
     var nanStr="<a href=\"javascript:;\" flag='-1' class=\"on\">全部</a>";
     var nvStr="<a href=\"javascript:;\" flag='-1' class=\"on\">全部</a>";
     var allStr="<a href=\"javascript:;\" flag='-1' class=\"on\">全部</a>";
@@ -25,9 +25,9 @@ $(function(){
             var htmlInfo="<a href=\"javascript:;\" flag='-1' class=\"on\">全部</a>";
             for (var i = 0; i < res.data.length; i++) {
                 var info = res.data[i];
-                allList.push(info)
+                allList.push(info);
                 if(info.fuId == '0'){
-                    htmlInfo+="<a href=\"javascript:;\" flag='"+info.id+"' class=\"\">"+info.typeName+"<i></i></a>"
+                    htmlInfo+="<a href=\"javascript:;\" flag='"+info.id+"' class=\"\">"+info.typeName+"<i></i></a>";
                     allStr+="<a href=\"javascript:;\" flag='"+info.id+"' class=\"\">"+info.typeName+"<i></i></a>"
                 }
 
@@ -56,7 +56,7 @@ $(function(){
         }
         $('.sk-gjc-ej-item').hide();
         loadClick();
-    })
+    });
 
 
     function getTypeItem(tyepId) {
@@ -83,11 +83,11 @@ $(function(){
     function sousuo() {
 
         var pdType=$(".pd-info-group .on").attr("flag");
-        var typeFlag=$(".sk-type-info .on").attr("flag")
-        var type2Flag=$(".sk-type-item .on").attr("flag")
-        var zsNumber=$(".sk-zs-group .on").attr("flag")
-        var gxTime=$(".gx-time-group .on").attr("flag")
-        var isWj=$(".is-wj-group .on").attr("flag")
+        var typeFlag=$(".sk-type-info .on").attr("flag");
+        var type2Flag=$(".sk-type-item .on").attr("flag");
+        var zsNumber=$(".sk-zs-group .on").attr("flag");
+        var gxTime=$(".gx-time-group .on").attr("flag");
+        var isWj=$(".is-wj-group .on").attr("flag");
         var pxLx=$(".px-lx-group .on").attr("flag");
         $.ajax({
             url: "/extend/html5/noveInfopage",
@@ -101,7 +101,7 @@ $(function(){
                 var twHtmlInfo="";
                 var lbHtmlInfo="";
                 for(var i=0;i<res.data.length;i++ ){
-                    var info=res.data[i]
+                    var info=res.data[i];
                     if(info==null){
                         continue;
                     }
@@ -141,7 +141,7 @@ $(function(){
                     for (var i = 1; i <= 10; i++) {
                         pageHtml += "<li class=\"" + (i == 1 ? "on" : "") + "\" flag=\"" + i + "\">" + i + "</li>";
                     }
-                    pageHtml+="<li flag=\"-5\">...</li>"
+                    pageHtml+="<li flag=\"-5\">...</li>";
                     pageHtml+="<li flag=\""+countPage+"\">"+countPage+"</li>";
                 }else {
                     endIndex=11;
@@ -162,7 +162,7 @@ $(function(){
         $(".sk-gjc-item-cont>a:not(:first)").click(function(){
             $(this).addClass('on').siblings().removeClass('on').parents('.sk-gjc-item').siblings().find('.sk-gjc-item-cont a').removeClass('on');
             $(this).parents('.sk-gjc-item').find('.sk-gjc-ej-item').show().parents('.sk-gjc-item').siblings().find('.sk-gjc-ej-item').hide();
-            var typeId=$(this).attr("flag")
+            var typeId=$(this).attr("flag");
             getTypeItem(typeId);
         });
 
@@ -264,13 +264,13 @@ $(function(){
             $(this).addClass('on').siblings().removeClass('on');
             $(".next-page").addClass("disabled");
         } else if (obj == "-5") {
-            return;
+
         } else {
             $(this).addClass('on').siblings().removeClass('on');
             $(".up-page").removeClass("disabled");
             $(".next-page").removeClass("disabled");
         }
-    })
+    });
 
     //获取搜索框下方广告位
     $.ajax({
@@ -281,11 +281,11 @@ $(function(){
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<a href=\""+info.link+"\" class='"+(i==0?"cl-r":"")+"' >"+info.title+"</a>";
             }
             $(".sous-ggao-group").html(htmlInfo);
         }
     });
 
-})
+});

@@ -122,12 +122,12 @@ $(function () {
     $("#tp-btn").click(function(){
         $(".toupiao-tc").toggle();
         $(".toupiao-cont").toggle();
-    })
+    });
 
     $(".tp-close").click(function(){
         $(".toupiao-tc").toggle();
         $(".toupiao-cont").toggle();
-    })
+    });
 
 
     $(".ds-tc-cont-je li").click(function(){
@@ -141,18 +141,18 @@ $(function () {
     $("#ds-btn").click(function(){
         $(".ds-tc").toggle();
         $(".ds-tc-cont").toggle();
-    })
+    });
 
     $(".ds-close").click(function(){
         $(".ds-tc").toggle();
         $(".ds-tc-cont").toggle();
-    })
+    });
 
 
     $(".book-pl-title a,.reply-btn,.zj-dt-btn").click(function(){
         $(".pl-tc").toggle();
         $(".pl-tc-cont").toggle();
-    })
+    });
 
 
     /*频道左侧3D图切换*/
@@ -171,8 +171,8 @@ $(function () {
         }
     });
 
-    var nanList = new Array();
-    var nvList = new Array();
+    var nanList = [];
+    var nvList = [];
 
     //获取男女生分类
     $.ajax({
@@ -405,7 +405,7 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<li><a href=\"" + info.link + "\" target='_blank'><img src=\"" + info.picture + "\" /></a></li>"
             }
             $(".sy-lunbo-info").html(htmlInfo);
@@ -430,7 +430,7 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<li><a href=\"" + info.link + "\"><i></i>" + info.title + "</a></li>";
             }
             $(".sy-dongtai-info").html(htmlInfo);
@@ -551,7 +551,7 @@ $(function () {
                 $(this).addClass('on').siblings().removeClass('on');
             });
         }
-    })
+    });
 
 
     $.ajax({
@@ -582,7 +582,7 @@ $(function () {
             $(".nv-bianji-info").html(nvHtml);
             $(".nan-bianji-info").html(nanHtml);
         }
-    })
+    });
 
     //获取搜索框下方广告位
     $.ajax({
@@ -593,7 +593,7 @@ $(function () {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<a href=\""+info.link+"\" class='"+(i==0?"cl-r":"")+"' >"+info.title+"</a>";
             }
             $(".sous-ggao-group").html(htmlInfo);
@@ -629,5 +629,5 @@ $(function () {
             $(".sy-renqib-group ul").html(htmlInfo);
         }
     })
-})
+});
 

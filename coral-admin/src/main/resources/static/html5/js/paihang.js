@@ -15,7 +15,7 @@ $(function (res) {
 
             $(".nan-reqi-group ul").html(htmlInfo);
         }
-    })
+    });
 
     //男生新书
     $.ajax({
@@ -33,7 +33,7 @@ $(function (res) {
 
             $(".nan-xinshu-group ul").html(htmlInfo);
         }
-    })
+    });
 
     //男生完结
     $.ajax({
@@ -51,7 +51,7 @@ $(function (res) {
 
             $(".nan-wanjie-group ul").html(htmlInfo);
         }
-    })
+    });
 
     //女生人气
     $.ajax({
@@ -69,7 +69,7 @@ $(function (res) {
 
             $(".nv-reqi-group ul").html(htmlInfo);
         }
-    })
+    });
 
     //女生新书
     $.ajax({
@@ -87,7 +87,7 @@ $(function (res) {
 
             $(".nv-xinshu-group ul").html(htmlInfo);
         }
-    })
+    });
 
     //女生完结
     $.ajax({
@@ -106,7 +106,7 @@ $(function (res) {
             $(".nv-wanjie-group ul").html(htmlInfo);
 
         }
-    })
+    });
     // 排行榜
     $(".phb-tab-cont a").click(function () {
         $(this).addClass('on').siblings().removeClass('on');
@@ -143,10 +143,10 @@ $(function (res) {
         success: function (res) {
             var htmlInfo = "";
             for (var i = 0; i < res.data.length; i++) {
-                var info = res.data[i]
+                var info = res.data[i];
                 htmlInfo += "<a href=\""+info.link+"\" class='"+(i==0?"cl-r":"")+"' >"+info.title+"</a>";
             }
             $(".sous-ggao-group").html(htmlInfo);
         }
     });
-})
+});

@@ -60,7 +60,7 @@ public class NovelTypeController extends BaseController {
         Page page = novelTypeService.page(setOrderPage(pageInfo),queryWrapper);
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
-            NovelTypeVo typeVo=GemBeanUtils.copyProperties((NovelType)obj,NovelTypeVo.class);
+            NovelTypeVo typeVo=GemBeanUtils.copyProperties(obj,NovelTypeVo.class);
             if(StringUtils.equals(typeVo.getFuId().toString(),"0")){
                 typeVo.setFuName("顶级目录");
             }else {

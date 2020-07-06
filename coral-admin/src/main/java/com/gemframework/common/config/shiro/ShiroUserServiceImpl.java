@@ -133,9 +133,6 @@ public class ShiroUserServiceImpl extends ServiceImpl<UserMapper, User> implemen
         if(entity.getId() != null && entity.getId() !=0){
             queryWrapper.and(wrapper -> wrapper.ne("id",entity.getId()));
         }
-        if(count(queryWrapper)>0){
-            return true;
-        }
-        return false;
+        return count(queryWrapper) > 0;
     }
 }

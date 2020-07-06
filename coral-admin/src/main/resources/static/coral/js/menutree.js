@@ -188,7 +188,7 @@ function getMenuTree() {
             // 请求失败函数
             console.log(res);
         }
-    })
+    });
     //获取所有菜单树
     $.ajax({
         type: "get",

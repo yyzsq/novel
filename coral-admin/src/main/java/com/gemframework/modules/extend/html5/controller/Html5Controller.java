@@ -101,7 +101,7 @@ public class Html5Controller extends BaseController {
         Page page = novelInfoService.page(setOrderPage(pageInfo),queryWrapper);
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
-            NovelInfoVo infoVo= GemBeanUtils.copyProperties((NovelInfo)obj,NovelInfoVo.class);
+            NovelInfoVo infoVo= GemBeanUtils.copyProperties(obj,NovelInfoVo.class);
             NovelType novelType1=novelTypeService.getById(infoVo.getType1());
             infoVo.setType1Name(novelType1.getTypeName());
             NovelType novelType2=novelTypeService.getById(infoVo.getType2());
@@ -135,7 +135,7 @@ public class Html5Controller extends BaseController {
         Page page = detailChapterService.page(setOrderPage(pageInfo),queryWrapper);
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
-            DetailChapterVo infoVo=GemBeanUtils.copyProperties((DetailChapter)obj,DetailChapterVo.class);
+            DetailChapterVo infoVo=GemBeanUtils.copyProperties(obj,DetailChapterVo.class);
             NovelInfo novelInfo=novelInfoService.getById(infoVo.getXsId());
             infoVo.setXsName(novelInfo.getXsTitle());
             NovelType type1=novelTypeService.getById(novelInfo.getType1());
@@ -299,7 +299,7 @@ public class Html5Controller extends BaseController {
         Page page = novelInfoService.page(setOrderPage(pageInfo),queryWrapper);
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
-            NovelInfoVo infoVo= GemBeanUtils.copyProperties((NovelInfo)obj,NovelInfoVo.class);
+            NovelInfoVo infoVo= GemBeanUtils.copyProperties(obj,NovelInfoVo.class);
             NovelType novelType1=novelTypeService.getById(infoVo.getType1());
             infoVo.setType1Name(novelType1.getTypeName());
             NovelType novelType2=novelTypeService.getById(infoVo.getType2());

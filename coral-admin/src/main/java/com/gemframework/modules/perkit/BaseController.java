@@ -130,7 +130,7 @@ public class BaseController {
         Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
         Set<ConstraintViolation<Object>> constraintViolations = validator.validate(object, groups);
         if (!constraintViolations.isEmpty()) {
-            ConstraintViolation<Object> constraint = (ConstraintViolation<Object>)constraintViolations.iterator().next();
+            ConstraintViolation<Object> constraint = constraintViolations.iterator().next();
             throw new GemException(ErrorCode.PARAM_EXCEPTION.getCode(),constraint.getMessage());
         }
     }

@@ -71,7 +71,7 @@ public class NovelInfoController extends BaseController {
         Page page = novelInfoService.page(setOrderPage(pageInfo),queryWrapper);
         List list=new ArrayList();
         for(Object obj:page.getRecords()){
-            NovelInfoVo infoVo=GemBeanUtils.copyProperties((NovelInfo)obj,NovelInfoVo.class);
+            NovelInfoVo infoVo=GemBeanUtils.copyProperties(obj,NovelInfoVo.class);
             NovelType novelType1=novelTypeService.getById(infoVo.getType1());
             infoVo.setType1Name(novelType1.getTypeName());
             NovelType novelType2=novelTypeService.getById(infoVo.getType2());

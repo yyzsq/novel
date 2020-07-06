@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="zh-cn" class="fullscreen-bg" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="format-detection" content="telephone=no">
+<title>书-详情页</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/reset_min.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/html5/css/index.css}">
+    <script type="text/javascript" th:src="@{/html5/js/jquery.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/index.js}"></script>
+    <link rel="stylesheet" type="text/css" th:href="@{html5/css/flexslider.css}" />
+    <script type="text/javascript" th:src="@{/html5/js/jquery.flexslider-min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/jquery.placeholder.min.js}"></script>
+    <script type="text/javascript" th:src="@{/html5/js/waterwheelcarousel.min.js}"></script>
+
+<script>
+    $(function(){
+        $('input[placeholder]').placeholder();
+        $('textarea[placeholder]').placeholder();
+    });
+ </script>
+
+</head>
+
+<body style=" background: #f8f8f8; ">
+
+
+
+
+
+
+
+<!-- 侧边悬浮内容 -->
+<div class="xf-side clearfix js-right-fixed">
+
+    <h3><img src="images/i-logo.png" /></h3>
+    <div class="xf-side-menu clearfix ">
+        <div class="xf-lxbj clearfix">
+            <span>联系<br>编辑</span>
+
+            <div class="xf-menu-tc clearfix">
+                <div class="iconfont xsj">&#xe607;</div>
+                <div class="xf-menu-tc-cont">
+
+                    <dl>
+                        <dt><i></i>女频编辑</dt>
+                        <dd>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+
+
+                        </dd>
+                    </dl>
+
+                    <dl class="npbj-dd">
+                        <dt><i class="npbj"></i>男频编辑</dt>
+                        <dd>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+                            <h4>
+                                <a href="https://wpa.qq.com/msgrd?v=3&amp;uin=112&amp;site=qq&amp;menu=yes">
+                                    <i></i>小妞妞
+                                </a> 35071465059
+                            </h4>
+
+                        </dd>
+                    </dl>
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="xf-fhdb clearfix">
+            <i></i>
+            <em class="iconfont">&#xe606;</em>
+            <p>顶部</p>
+        </div>
+    </div>
+
+</div>
+<!-- 侧边悬浮内容 end-->
+
+
+
+
+
+<!-- 头部 -->
+
+    <div class="s-header clearfix" style="position:relative; display: block;">
+        <div class="s-header-cont clearfix">
+            <a href="javascript:;" class="s-logo"><img src="images/logo.png" alt=""></a>
+
+            <div class="s-nav clearfix">
+                <a href="index.html"><i></i>首页</a>
+                <a href="nansheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html" ><i></i>男生原创</a>
+                <a href="javascript:;" ><i></i>出版图书</a>
+                <a href="shuku.html" class='on' ><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+                <a href="zuojia.html" ><i></i>作家专区</a>
+            </div>
+
+            <div class="header-search s-header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+
+        </div>
+    </div>
+
+   
+
+    <!-- 悬浮头部 -->
+    <div class="s-header clearfix js-sheader-fixed">
+        <div class="s-header-cont clearfix">
+            <a href="javascript:;" class="s-logo"><img src="images/logo.png" alt=""></a>
+
+            <div class="s-nav clearfix">
+                <a href="index.html"><i></i>首页</a>
+                <a href="nansheng.html"><i></i>女生原创</a>
+                <a href="nansheng.html" ><i></i>男生原创</a>
+                <a href="javascript:;" ><i></i>出版图书</a>
+                <a href="shuku.html" class='on' ><i></i>书库</a>
+                <a href="paihang.html" ><i></i>排行榜</a>
+                <a href="zuojia.html" ><i></i>作家专区</a>
+            </div>
+
+            <div class="header-search s-header-search clearfix">
+                    <input type="text" placeholder="请输入书名/作者/主角">
+                    <a href="javascript:;" >搜索</a>
+            </div>
+
+        </div>
+    </div>
+    <!-- 悬浮头部 end-->
+
+
+<!-- 头部 end -->
+
+
+
+
+
+<!-- 子导航 -->
+<div class="page-nav wrapper clearfix">
+     <a href="javascript:;" >首页<i></i></a>
+     <a href="javascript:;">作品库<i></i></a>
+     <a href="javascript:;">东方玄幻<i></i></a>
+     <span>我的体内有只鬼</span>
+</div>
+<!-- 子导航 end -->
+
+
+
+<!-- 图书信息 -->
+<div class="book-info wrapper clearfix">
+
+    <div class="ewm-qb clearfix">
+        <img src="images/ewm-qb.png" />
+    </div>
+
+    <div class="ewm-show clearfix none">
+        <img src="images/ewm.jpg" />
+        <p>扫一扫,手机阅读</p>
+    </div>
+
+
+    <div class="book-pic clearfix">
+        <a href="javascript:;"><img src="images/pic/book-2.jpg" /></a>
+    </div>
+
+    <div class="book-txt clearfix">
+        <h6 class="clearfix"><a href="javascript:;">我的体内有只鬼</a><i>一饼磨刀&nbsp;著</i></h6>
+        <h5 class="clearfix"><i>连载中</i></h5>
+        <h4 class="clearfix">
+            <span>99.3万<em>字</em></span>
+            <b></b>
+            <span>99.3万<em>总人气</em></span>
+            <b></b>
+            <span>99.3万<em>总银票</em></span>
+            <b></b>
+            <span><em>某某签约</em></span>
+        </h4>
+        <p>厉鬼复苏，百鬼夜行。 无端穿越来到这个世界的江晓置身于魑魅魍魉之中，却发现自己的影子可以无限吞噬鬼物，得到它们的能力。 【成功吞噬白雾鬼，获得能力：雾化】 【成功吞噬吊死鬼，获得能力：枷锁】 【成功吞噬青铜鬼，获得能力：铜皮】 【成功吞噬水鬼，获得能力：乱水流】</p>
+        <div class="book-info-btn clearfix">
+            <a href="read.html" class="on">点击阅读</a>
+            <a href="javascript:;">目录</a>
+            <a href="javascript:;">加入书架</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- 图书信息 end -->
+
+
+
+
+
+<!-- 图书详情 -->
+<div class="book-detail wrapper clearfix">
+    <!-- 左侧 -->
+    <div class="book-detail-left clearfix">
+        <div class="book-txt-title clearfix">
+            <h5><span>最新更新</span><em></em></h5>
+            <h4><a href="javascript:;">第344章 小秘密的特殊能力</a><b>更新时间:2020-06-28</b></h4>
+        </div>
+
+
+        <div class="book-tp clearfix">
+            <div class="book-tp-item clearfix">
+                <div class="book-tp-title clearfix">
+                    <em></em>
+                    <span></span>
+                    <b>银票</b>
+                    <i></i>
+                </div>
+                <div class="book-tp-num clearfix">
+                    本月票数<span>&nbsp;45&nbsp;</span>票
+                </div>
+                <div class="book-tp-btn clearfix"><a href="javascript:;">投银票</a></div>
+                <p>银票拿去，作者大大加油更更更！</p>
+            </div>
+
+            <div class="book-tp-item clearfix book-ds">
+                <div class="book-tp-title clearfix">
+                    <em></em>
+                    <span class="ds-icon"></span>
+                    <b>打赏</b>
+                    <i></i>
+                </div>
+                <div class="book-tp-num clearfix">
+                    本周打赏<span>&nbsp;0&nbsp;</span>人
+                </div>
+                <div class="book-tp-btn clearfix"><a href="javascript:;">去打赏</a></div>
+                <p>暂未收到打赏，快来做打赏第一人吧</p>
+            </div>
+
+
+
+            <div class="book-tp-item book-dr clearfix">
+                <div class="book-tp-title clearfix">
+                    <em></em>
+                    <span class="dr-icon"></span>
+                    <b>打赏达人榜</b>
+                    <i></i>
+                </div>
+                <div class="space10"></div>
+                <div class="dr-list clearfix">
+                    <div class="dr-list-item clearfix">
+                        <div class="dr-tx clearfix">
+                            <img src="images/tx.jpg" /><i></i> 
+                        </div>
+                        <h3><span>宜秀闪电鸡</span>打赏<i>1888</i>金币</h3>
+                    </div>
+                    <div class="dr-list-item clearfix">
+                        <div class="dr-tx clearfix">
+                            <img src="images/tx.jpg" /><i class="icon-zl"></i> 
+                        </div>
+                        <h3><span>宜秀闪电鸡</span>打赏<i>1888</i>金币</h3>
+                    </div>
+                    <div class="dr-list-item clearfix">
+                        <div class="dr-tx clearfix">
+                            <img src="images/tx.jpg" /><i></i> 
+                        </div>
+                        <h3><span>宜秀闪电鸡</span>打赏<i>1888</i>金币</h3>
+                    </div>
+
+                </div>
+                <div class="look-tips">
+                    <i></i><em></em><a href="javascript:;">查看更多达人排名</a>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="book-txt-title like clearfix">
+            <h5><span>喜欢这本书的人还喜欢</span><em></em></h5>
+        </div>
+
+        <div class="like-list clearfix">
+            <ul>
+                <li>
+                    <a href="javascript:;">
+                        <div class="like-pic clearfix"><img src="images/pic/book-2.jpg" /></div>
+                        <h5>扫福的艾莉莉</h5>
+                        <p>初八</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="like-pic clearfix"><img src="images/pic/book-2.jpg" /></div>
+                        <h5>扫福的艾莉莉</h5>
+                        <p>初八</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="like-pic clearfix"><img src="images/pic/book-2.jpg" /></div>
+                        <h5>扫福的艾莉莉</h5>
+                        <p>初八</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="like-pic clearfix"><img src="images/pic/book-2.jpg" /></div>
+                        <h5>扫福的艾莉莉</h5>
+                        <p>初八</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:;">
+                        <div class="like-pic clearfix"><img src="images/pic/book-2.jpg" /></div>
+                        <h5>扫福的艾莉莉</h5>
+                        <p>初八</p>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+
+
+        <!-- 广告横条 -->
+        <div class="ad-h mt-24 clearfix" style="width: 100%; margin-top: 25px;">
+            <a href="javascript:;"><img src="images/pic/ad-book.jpg" /></a>
+        </div>
+        <!-- 广告横条 end -->
+
+
+        <div class="space40"></div>
+
+
+        <!-- 评论 -->
+        <div class="book-pl clearfix">
+
+            <div class="book-pl-title clearfix">
+                <span>书友评论</span><i>12334条</i><a href="javascript:;">我要发评</a>
+            </div>
+
+            <div class="book-pl-list clearfix">
+                <dl>
+                    <dd>
+                        <div class="book-pl-pic clearfix">
+                            <a href="javascript:;"><img src="images/tx.jpg" /></a>
+                        </div>
+                        <div class="book-pl-cont clearfix">
+                            <h4><a href="javascript:;">花花</a><span>2020-02-02 11:00:00</span></h4>
+                            <div class="book-pl-txt clearfix">
+                                <p>写的不错，加油！期待你的更新</p>
+                            </div>
+                            <div class="book-pl-info clearfix">
+                                <span class="on"></span><em>1</em><i></i><a href="javascript:;" class="reply-btn">回复</a>
+                            </div>
+
+
+                            <!-- 评论内容 -->
+                            <ul>
+                                
+
+                                <li>
+                                    <div class="book-pl-pic clearfix">
+                                        <a href="javascript:;"><img src="images/tx.jpg" /></a>
+                                    </div>
+                                    <div class="book-pl-cont clearfix">
+                                        <h4><a href="javascript:;">花花</a><span>2020-02-02 11:00:00</span></h4>
+                                        <div class="book-pl-txt clearfix">
+                                            <p>写的不错，加油！期待你的更新</p>
+                                        </div>
+                                        <div class="book-pl-info clearfix">
+                                            <span class=""></span><em>1</em><i></i><a href="javascript:;" class="reply-btn">回复</a>
+                                        </div>
+                                    </div>
+
+                                </li>
+                                <li>
+                                    <div class="book-pl-pic clearfix">
+                                        <a href="javascript:;"><img src="images/tx.jpg" /></a>
+                                    </div>
+                                    <div class="book-pl-cont clearfix">
+                                        <h4><a href="javascript:;">花花</a><span>2020-02-02 11:00:00</span></h4>
+                                        <div class="book-pl-txt clearfix">
+                                            <p>写的不错，加油！期待你的更新</p>
+                                        </div>
+                                        <div class="book-pl-info clearfix">
+                                            <span class=""></span><em>1</em><i></i><a href="javascript:;" class="reply-btn">回复</a>
+                                        </div>
+                                    </div>
+
+                                </li>
+                            </ul>
+
+
+                            <!-- 评论内容 end -->
+
+
+                        </div>
+
+                    </dd>
+                    <dd>
+                        <div class="book-pl-pic clearfix">
+                            <a href="javascript:;"><img src="images/tx.jpg" /></a>
+                        </div>
+                        <div class="book-pl-cont clearfix">
+                            <h4><a href="javascript:;">花花</a><span>2020-02-02 11:00:00</span></h4>
+                            <div class="book-pl-txt clearfix">
+                                <p>写的不错，加油！期待你的更新</p>
+                            </div>
+                            <div class="book-pl-info clearfix">
+                                <span class=""></span><em>1</em><i></i><a href="javascript:;" class="reply-btn">回复</a>
+                            </div>
+                        </div>
+
+                    </dd>
+                </dl>
+            </div>
+
+        </div>
+
+ 
+        <!--页码 上下页 -->
+        <div class="page-number clearfix">
+            <ul>
+                <li class="disabled">上一页</li>
+                <li class="on">1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>...</li>
+                <li>176</li>
+                <li>下一页</li>
+                <li><input type="text" /></li>
+                <li>跳转</li>
+            </ul>
+        </div>
+
+
+    </div>
+    <!-- 左侧 end  -->
+
+    <!-- 右侧 -->
+    <div class="book-detail-right clearfix">
+
+        <div class="book-zz clearfix">
+            <div class="book-zz-info clearfix">
+                <img src="images/tx.jpg" />
+                <h4><a href="javascript:;">林小姐</a></h4>
+                <em></em>
+            </div>
+            <h5>作者大大正在努力构思中...</h5>
+             <i></i>
+        </div>
+
+        <div class="other-book clearfix">
+            <h5 class="other-book-title"><em></em><span>其他作品</span></h5>
+            <ul>
+                <li>
+                    <div class="oth-book-pic clearfix">
+                        <a href="javascript:;">
+                            <img src="images/pic/book-2.jpg" />
+                        </a>
+                    </div>
+                    <h5><a href="javascript:;">最强傻宝宝</a></h5>
+                    <h4>4455万人气</h4>
+                    <p>天地异变，灵气复苏，次元秘境降临，怪物入侵。
+　　叶荣激活神宠进化系统，可以进化世间的一切动植物，且进化到极致。</p>
+                    <h3><a href="javascript:;">加入书架</a></h3>
+                </li>
+                <li>
+                    <div class="oth-book-pic clearfix">
+                        <a href="javascript:;">
+                            <img src="images/pic/book-2.jpg" />
+                        </a>
+                    </div>
+                    <h5><a href="javascript:;">最强傻宝宝</a></h5>
+                    <h4>4455万人气</h4>
+                    <p>天地异变，灵气复苏，次元秘境降临，怪物入侵。
+　　叶荣激活神宠进化系统，可以进化世间的一切动植物，且进化到极致。</p>
+                    <h3><a href="javascript:;">加入书架</a></h3>
+                </li>
+            </ul>
+        </div>
+
+
+
+        <div class="other-book clearfix">
+            <h5 class="other-book-title"><em class="zbtj"></em><span>主编推荐</span></h5>
+            <ul>
+                <li>
+                    <div class="oth-book-pic clearfix">
+                        <a href="javascript:;">
+                            <img src="images/pic/book-2.jpg" />
+                        </a>
+                    </div>
+                    <h5><a href="javascript:;">最强傻宝宝</a></h5>
+                    <h4>钱塘苏小</h4>
+                    <p>天地异变，灵气复苏，次元秘境降临，怪物入侵。
+　　叶荣激活神宠进化系统，可以进化世间的一切动植物，且进化到极致。</p>
+                </li>
+                <li>
+                    <div class="oth-book-pic clearfix">
+                        <a href="javascript:;">
+                            <img src="images/pic/book-2.jpg" />
+                        </a>
+                    </div>
+                    <h5><a href="javascript:;">最强傻宝宝</a></h5>
+                    <h4>钱塘苏小</h4>
+                    <p>天地异变，灵气复苏，次元秘境降临，怪物入侵。
+　　叶荣激活神宠进化系统，可以进化世间的一切动植物，且进化到极致。</p>
+                </li>
+            </ul>
+        </div>
+
+
+
+    </div>
+    <!-- 右侧 end-->
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<!-- 脚部 -->
+
+<div class="footer">
+    <div class="footer-cont">
+        <div class="ft-link">
+            <a href="javascript:;">关于七猫</a><i>|</i>
+            <a href="javascript:;">联系我们</a><i>|</i>
+            <a href="javascript:;">我要举报</a><i>|</i>
+            <a href="javascript:;">用户协议</a><i>|</i>
+            <a href="javascript:;">版权声明</a><i>|</i>
+            <a href="javascript:;">隐私协议</a><i>|</i>
+            <a href="javascript:;">我要当作家</a>
+        </div>
+
+        <div class="ft-copyright">
+            上海七猫文化传媒有限公司&nbsp;&nbsp;&nbsp;&copy;&nbsp;2017&nbsp;www.qimao.com&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;&nbsp;&nbsp;<a href="http://beian.miit.gov.cn" target="_blank">沪ICP备17012825号-6</a>&nbsp;沪公网安备&nbsp;31011502010023号
+            <a href="javascript:;" target="_blank"><img src="images/gaj.jpg" alt=""></a>
+            <p>出版物经营许可证&nbsp;新出发沪批字第Y7129号&nbsp;&nbsp;沪网文&nbsp;[2017]&nbsp;4325-303号&nbsp;&nbsp;沪ICP证：沪B2-20190085</p>
+        </div>
+
+        <div class="ft-company">
+            <a href="javascript:;"><img src="images/xy-1.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-2.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-3.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-4.png" alt=""></a>
+            <a href="javascript:;"><img src="images/xy-5.png" alt=""></a>
+        </div>
+    </div>
+</div>
+
+<!-- 脚部 end -->
+
+
+
+<!-- 我要发评弹窗 -->
+
+<div class="ds-tc none clearfix pl-tc" ></div>
+<div class="ds-tc-cont none pl-tc-cont clearfix ">
+    <div class="ds-close"><img src="images/icon-close.png" /></div>
+
+    <div class="ds-input clearfix">
+        <textarea placeholder="写的真好，塔豆奉上！" maxlength="120" >请输入您的评论内容！</textarea>
+        <i>120字符</i>
+    </div>
+
+    <div class="yebz"><a href="javascript:;">发表评论</a></div>
+
+</div>
+
+
+
+
+</body>
+
+</html>
