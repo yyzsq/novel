@@ -34,7 +34,7 @@
         <coral.version>${project.version}</coral.version>
         <baomidou.version>3.3.2</baomidou.version>
         <dynamic.version>2.5.5</dynamic.version>
-        <shiro.version>1.4.2</shiro.version>
+        <shiro.version>1.6.0</shiro.version>
         <shiro.tag.version>2.0.0</shiro.tag.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.io.version>2.5</commons.io.version>
